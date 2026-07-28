@@ -5,9 +5,10 @@ window.addEventListener("load", () => {
     .querySelectorAll(".section-anchor")
     .forEach((anchor) => anchor.classList.remove("hide"));
   document.querySelector(".footer__silhouettes").classList.remove("hide");
-  document
-    .querySelector(".Thx1138-silhouette")
-    .addEventListener("transitionend", startAnimations);
+
+  const screen = document.querySelector(".screen");
+  screen.classList.remove("hide");
+  screen.addEventListener("transitionend", startAnimations);
 });
 
 function startAnimations() {
