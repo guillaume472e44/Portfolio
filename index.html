@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guillaume Duval</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/icons8-portfolio-16.png"
+      type="image/x-icon"
+    />
+    <title>Portfolio - Guillaume Duval</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -23,22 +28,30 @@
       </div>
       <nav class="header__navigation">
         <div class="section-anchor odd hide">
-          <button class="section-anchor__link">Accueil</button>
+          <button class="section-anchor__link active" data-anchor="home">
+            Accueil
+          </button>
           <div class="section-anchor__borders--left"></div>
           <div class="section-anchor__borders--right"></div>
         </div>
         <div class="section-anchor even hide">
-          <button class="section-anchor__link">Présentation</button>
+          <button class="section-anchor__link" data-anchor="presentation">
+            Présentation
+          </button>
           <div class="section-anchor__borders--left"></div>
           <div class="section-anchor__borders--right"></div>
         </div>
         <div class="section-anchor odd hide">
-          <button class="section-anchor__link">Compétences</button>
+          <button class="section-anchor__link" data-anchor="skills">
+            Compétences
+          </button>
           <div class="section-anchor__borders--left"></div>
           <div class="section-anchor__borders--right"></div>
         </div>
         <div class="section-anchor even hide">
-          <button class="section-anchor__link">Contact</button>
+          <button class="section-anchor__link" data-anchor="contact">
+            Contact
+          </button>
           <div class="section-anchor__borders--left"></div>
           <div class="section-anchor__borders--right"></div>
         </div>
@@ -47,7 +60,26 @@
 
     <main></main>
 
-    <footer></footer>
+    <footer>
+      <div class="footer__silhouettes hide">
+        <div class="sun"></div>
+        <img
+          src="./assets/THX1138.webp"
+          alt="silhouette d'un homme devant le soleil couchant"
+          class="Thx1138-silhouette"
+        />
+        <img
+          src="./assets/footer_landscape.webp"
+          alt="silhouette d'un paysage lointain de plaine"
+          class="landscape-silouhette"
+        />
+        <img
+          src="./assets/footer_caveman.webp"
+          alt="silhouette d'un homme des caverne avec un gourdin"
+          class="caveman-silhouette"
+        />
+      </div>
+    </footer>
     <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
