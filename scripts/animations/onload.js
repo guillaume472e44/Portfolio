@@ -1,22 +1,38 @@
-window.addEventListener("load", () => {
-  document.querySelector(".cliffs-silhouette").classList.remove("hide");
-  document.querySelector(".alpinist-silhouette").classList.remove("hide");
+import { displaySVGTitle } from "./titles.js";
+import transitionGrid from "./transitionGrid.js";
+
+window.addEventListener("load", contentDisplay);
+
+function contentDisplay() {
+  document.querySelector("body").classList.remove("hide-on-load");
+
+  // Grille masquant le contenu
+  transitionGrid();
+
+  // événement déclenché après l'apparition du dernier élément affiché
   document
-    .querySelectorAll(".section-anchor")
-    .forEach((anchor) => anchor.classList.remove("hide"));
-  document.querySelector(".footer__silhouettes").classList.remove("hide");
-  document.querySelector(".screen").classList.remove("hide");
+    .querySelector(".social-links__anchor:nth-child(2)")
+    .addEventListener("transitionend", pageLoaded);
+}
 
-  const socialLinks = document.querySelector(".social-links");
-  socialLinks.classList.remove("hide");
-  socialLinks.addEventListener("transitionend", startAnimations);
-  // const screen = document.querySelector(".screen");
-  // screen.classList.remove("hide");
-  // screen.addEventListener("transitionend", startAnimations);
-});
-
-function startAnimations() {
+function pageLoaded() {
+  // Lancement des animations permanantes
   document.querySelector(".caveman-silhouette").classList.add("animate");
-  document.querySelector(".social-links__anchor").classList.add("animate");
+  document
+    .querySelectorAll(".social-links__anchor")
+    .forEach((link) => link.classList.add("animate"));
 
+  // Affichage titre accueil
+  displaySVGTitle("presentation");
+
+  // premier affichage du contenu principal
+  setTimeout(() => {
+    transitionGrid("fadeIn");
+  }, 1600);
+
+  // Suppression listeners
+  document
+    .querySelector(".social-links__anchor:nth-child(2)")
+    .removeEventListener("transitionend", pageLoaded);
+  window.removeEventListener("load", contentDisplay);
 }

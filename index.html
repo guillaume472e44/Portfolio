@@ -11,7 +11,7 @@
     <title>Portfolio - Guillaume Duval</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="hide-on-load">
     <header>
       <div class="header__silhouettes">
         <img
@@ -19,9 +19,9 @@
           width="448"
           height="160"
           alt="silhouette de falaise"
-          class="cliffs-silhouette hide"
+          class="cliffs-silhouette"
         />
-        <div class="alpinist-silhouette hide">
+        <div class="alpinist-silhouette">
           <img
             src="./assets/header_alpinist.webp"
             width="448"
@@ -31,29 +31,45 @@
         </div>
       </div>
       <nav class="header__navigation">
-        <div class="section-anchor odd hide">
-          <button class="section-anchor__link active" data-anchor="home">
-            Accueil
-          </button>
-          <div class="section-anchor__borders--left"></div>
-          <div class="section-anchor__borders--right"></div>
-        </div>
-        <div class="section-anchor even hide">
-          <button class="section-anchor__link" data-anchor="presentation">
+        <div class="section-anchor odd">
+          <button
+            class="section-anchor__link active"
+            data-anchor="presentation"
+            data-locked="true"
+          >
             Présentation
           </button>
           <div class="section-anchor__borders--left"></div>
           <div class="section-anchor__borders--right"></div>
         </div>
-        <div class="section-anchor odd hide">
-          <button class="section-anchor__link" data-anchor="skills">
+        <div class="section-anchor even">
+          <button
+            class="section-anchor__link"
+            data-anchor="career"
+            data-locked="true"
+          >
+            Parcours
+          </button>
+          <div class="section-anchor__borders--left"></div>
+          <div class="section-anchor__borders--right"></div>
+        </div>
+        <div class="section-anchor odd">
+          <button
+            class="section-anchor__link"
+            data-anchor="skills"
+            data-locked="true"
+          >
             Compétences
           </button>
           <div class="section-anchor__borders--left"></div>
           <div class="section-anchor__borders--right"></div>
         </div>
-        <div class="section-anchor even hide">
-          <button class="section-anchor__link" data-anchor="contact">
+        <div class="section-anchor even">
+          <button
+            class="section-anchor__link"
+            data-anchor="contact"
+            data-locked="true"
+          >
             Contact
           </button>
           <div class="section-anchor__borders--left"></div>
@@ -62,10 +78,32 @@
       </nav>
     </header>
 
-    <div class="social-links hide">
+    <div class="social-links">
+      <a
+        href="https://fr.linkedin.com/"
+        title="Lien vers Linkedin"
+        class="social-links__anchor"
+        target="_blank"
+      >
+        <img
+          src="./assets/rope-link.webp"
+          width="32"
+          height="96"
+          alt="silhouette d'une corde accrochée à un mousqueton"
+          class="social-links__anchor__rope"
+        />
+        <img
+          src="./assets/icons/logo_Linkedin.svg"
+          width="32"
+          height="32"
+          alt="logo de gitHub"
+          class="social-links__anchor__logo"
+        />
+        <div class="social-links__anchor__underline"></div>
+      </a>
       <a
         href="https://github.com/guillaume472e44"
-        title="Lien vers ma page GitHub"
+        title="Lien vers GitHub"
         class="social-links__anchor"
         target="_blank"
       >
@@ -87,10 +125,27 @@
       </a>
     </div>
 
-    <main class="screen hide"></main>
+    <main class="screen">
+      <div class="transition-grid"></div>
+      <section id="presentation" class="main-content">
+        <span class="section-title animate"></span>
+        <div class="section-content">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatibus facilis possimus earum neque in aliquid vitae dolorem alias dicta saepe, ab soluta iste provident ratione eaque odio rerum at! Molestiae assumenda vero eos voluptas culpa eum? Non quis labore quibusdam obcaecati. Aliquid totam maiores libero vel, adipisci eaque eum consequatur, consequuntur ipsa nisi sit quos. Officiis commodi autem unde nostrum deserunt, facilis rerum voluptatem vero ex, voluptates culpa exercitationem, in sapiente quibusdam ea aspernatur tempore iusto eos suscipit quidem velit nihil reiciendis illum ducimus? Harum nemo voluptatum nihil veritatis ad rerum quo dolores voluptates numquam ut sapiente, enim totam officia eum quibusdam? Iure neque, explicabo nostrum, consequuntur corrupti facere enim eius ex pariatur optio ipsa hic ipsam velit alias mollitia ea dicta illum. Mollitia pariatur veritatis, enim sapiente quo totam fugit. Voluptate, nemo quia necessitatibus exercitationem at obcaecati, minus sunt consectetur accusamus ipsum quo sequi dignissimos voluptatibus? Deleniti enim repudiandae nihil doloremque cum saepe dolores dolore, nobis repellendus necessitatibus nam et quae ullam reprehenderit voluptatem. Fugit nostrum cupiditate sint hic vitae consequuntur ducimus, qui id ipsam rerum aspernatur harum, animi quasi assumenda modi. Ipsa ea necessitatibus omnis quasi commodi optio error quisquam pariatur mollitia autem, blanditiis explicabo praesentium illum earum ipsam sint dolores rem ad dolor sunt hic!</p>
+        </div>
+      </section>
+      <!-- <section id="career" class="main-content">
+        <span class="section-title animate"></span>
+      </section>
+      <section id="skills" class="main-content">
+        <span class="section-title animate"></span>
+      </section>
+      <section id="contact" class="main-content">
+        <span class="section-title animate"></span>
+      </section> -->
+    </main>
 
     <footer>
-      <div class="footer__silhouettes hide">
+      <div class="footer__silhouettes">
         <div class="sun"></div>
         <img
           src="./assets/THX1138.webp"

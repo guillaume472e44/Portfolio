@@ -23,6 +23,11 @@
   --transitionCircular: cubic-bezier(0.79, 0.14, 0.15, 0.86);
   --transitionBordersBtn: cubic-bezier(0.96, -2, 0.04, 2);
   --transitionElastic: cubic-bezier(0.8, -0.5, 0.2, 1.8);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -36,7 +41,20 @@ body {
   );
   display: flex;
   flex-direction: column;
+  position: relative;
   overflow: hidden;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 /*
@@ -65,9 +83,6 @@ header {
     transform: translateY(0);
     transition: transform 0.3s var(--transitionBackward);
   }
-  .cliffs-silhouette.hide {
-    transform: translateY(-100%);
-  }
 
   .alpinist-silhouette {
     display: flex;
@@ -87,9 +102,6 @@ header {
       width: 1px;
       background-color: black;
     }
-  }
-  .alpinist-silhouette.hide {
-    transform: rotateX(180deg);
   }
 }
 
@@ -217,17 +229,9 @@ header {
 
 .section-anchor.odd {
   transform-origin: 20px 0px;
-
-  &.hide {
-    transform: rotateY(90deg);
-  }
 }
 .section-anchor.even {
   transform-origin: calc(100% - 20px) 0px;
-
-  &.hide {
-    transform: rotateY(-90deg);
-  }
 }
 
 /* décalage temporel apparition des boutons */
@@ -273,38 +277,46 @@ header {
   position: absolute;
   right: 32px;
   top: -2px;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 40px;
 }
 .social-links__anchor {
   text-decoration: none;
   display: flex;
   flex-direction: column;
   transform-origin: top;
-  transform: rotateZ(-7.5deg);
+  transform: rotateZ(-5deg);
   transition: transform 0.6s 3.2s var(--transitionElastic);
 
   &.animate {
     animation: 2.4s ease-in-out 0s infinite alternate flow;
   }
 }
-
-@keyframes flow {
-  from {
-    transform: rotateZ(-7.5deg);
+.social-links__anchor {
+  &:nth-child(2) {
+    transition-delay: 3.4s;
   }
-  to {
-    transform: rotateZ(7.5deg);
+  &.animate:nth-child(2) {
+    animation-duration: 2.6s;
   }
 }
 
-.social-links.hide {
-  & .social-links__anchor {
-    transform: translateY(-100%) rotateZ(-7.5deg);
+@keyframes flow {
+  from {
+    transform: rotateZ(-5deg);
+  }
+  to {
+    transform: rotateZ(5deg);
   }
 }
 
 .social-links__anchor__rope {
   filter: contrast(75%);
 }
+/* .social-links__anchor__logo{
+  transform: translateY(2px);
+} */
 
 .social-links__anchor__underline {
   width: 100%;
@@ -313,15 +325,7 @@ header {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: orangered;
-  display: none; 
-
-  /* &::after{
-    content: "GitHub";
-    color: black;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 100;
-  } */
+  display: none;
 }
 
 .social-links__anchor:hover,
@@ -333,7 +337,7 @@ header {
   }
 
   .social-links__anchor__logo {
-    filter: invert(100%);
+    filter: invert(50%);
   }
 
   .social-links__anchor__underline {
@@ -354,7 +358,7 @@ header {
   --screenHeight: 512px;
   --borderThickness: 16px;
 
-  margin: 80px auto auto;
+  margin: 128px auto auto;
   position: relative;
   z-index: 2;
   width: var(--screenWidth);
@@ -376,14 +380,88 @@ header {
     box-shadow:
       inset -2px 2px 4px #6565655f,
       inset 2px -2px 4px #ffffff;
+    pointer-events: none;
   }
 
   transform-origin: bottom center;
   transition: transform 0.4s 3s var(--transitionElastic);
+}
 
-  &.hide {
-    transform: scale(0);
+.transition-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  margin: 88px 40px 16px;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  pointer-events: none;
+
+  & > div {
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    animation: ease-in forwards;
+    transform-origin: center;
   }
+}
+@keyframes fadeIn {
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.main-content {
+  margin: 8px;
+  width: calc(100% - var(--borderThickness));
+  height: calc(100% - var(--borderThickness));
+  display: flex;
+  flex-direction: column;
+}
+.section-title {
+  min-height: 72px;
+  text-align: end;
+  margin-inline: 32px;
+  padding-block-start: 18px;
+  border-bottom: 1px solid white;
+}
+
+.section-title svg path {
+  fill: transparent;
+  stroke: black;
+  stroke-width: 0.5px;
+  stroke-dasharray: 90;
+  stroke-dashoffset: 90;
+}
+.section-title.animate svg path {
+  animation: textAnim 2s ease-in-out forwards;
+}
+@keyframes textAnim {
+  0% {
+    stroke-dashoffset: 90;
+  }
+  60% {
+    fill: transparent;
+  }
+  100% {
+    fill: black;
+    stroke-dashoffset: 0;
+  }
+}
+
+.section-content {
+  margin: 16px 32px;
+  flex-grow: 1;
+  background-color: rgb(240, 240, 240);
+  /* background-color: rgb(40, 40, 40); */
+  /* color: white; */
+  /* border-radius: 4px; */
+  padding: 32px;
+  overflow-y: auto;
+  border: 1px solid white;
+  box-shadow:
+    inset -1px 1px 2px #7474745f,
+    inset 1px -1px 2px #fff;
 }
 
 /*
@@ -480,23 +558,57 @@ header {
   }
 }
 
-.footer__silhouettes.hide {
-  &::before {
-    transform: translateX(-100%);
+/*
+----------------------------------------------------------------
+
+***************************** Animations au lancement de la page
+
+----------------------------------------------------------------
+*/
+@media (prefers-reduced-motion: no-preference) {
+  body.hide-on-load {
+    & .cliffs-silhouette {
+      transform: translateY(-100%);
+    }
+    & .alpinist-silhouette {
+      transform: rotateX(180deg);
+    }
+
+    & .section-anchor.odd {
+      transform: rotateY(90deg);
+    }
+    & .section-anchor.even {
+      transform: rotateY(-90deg);
+    }
+
+    & .social-links__anchor {
+      transform: translateY(-100%) rotateZ(-5deg);
+    }
+
+    & .screen {
+      transform: scale(0);
+    }
+
+    & .footer__silhouettes::before {
+      transform: translateX(-100%);
+    }
+    & .footer__silhouettes::after {
+      transform: translateX(100%);
+    }
+    & .caveman-silhouette {
+      transform: scaleY(0);
+    }
+    & .landscape-silouhette {
+      transform: translateY(100%);
+    }
+    & .sun {
+      transform: translateY(200px);
+    }
+    & .Thx1138-silhouette {
+      transform: scaleY(0);
+    }
   }
-  &::after {
-    transform: translateX(100%);
-  }
-  & .caveman-silhouette {
-    transform: scaleY(0);
-  }
-  & .landscape-silouhette {
-    transform: translateY(100%);
-  }
-  & .sun {
-    transform: translateY(200px);
-  }
-  & .Thx1138-silhouette {
-    transform: scaleY(0);
-  }
+}
+@media (prefers-reduced-motion) {
+
 }
