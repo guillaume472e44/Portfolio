@@ -1,5 +1,6 @@
 export * from "./animations/onload.js";
 import { displaySVGTitle } from "./animations/titles.js";
+import loadFireSheets from "./animations/loadFireSheets.js";
 
 /**
  * ----------------------------------------
@@ -16,6 +17,8 @@ function navigation(e) {
     e.target.classList.contains("active")
   )
     return;
+
+  loadFireSheets();
 
   updatelinksButtonsStyle(e.target.dataset.anchor);
   displaySVGTitle(e.target.dataset.anchor);

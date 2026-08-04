@@ -2,8 +2,8 @@ export default function (animationName = null, transformOrigin = "center") {
   const gridContainer = document.querySelector(".transition-grid");
   containerCleaning(gridContainer);
 
-  const duration = 200;
-  const delay = 8;
+  const duration = 300;
+  const delay = 16;
   const boxesCount = 144;
 
   for (let i = 0; i < boxesCount; i++) {

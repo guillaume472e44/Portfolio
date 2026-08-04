@@ -15,6 +15,8 @@
   --black_sickness: #272414;
   /* --red_stones: #722222; */
   /* --red_sickness: #692a1d; */
+  --candle: #ffb93d;
+
   --footer_txt: rgba(146, 235, 255, 0.75);
 
   --anchorBorderColor: var(--black_sickness);
@@ -453,15 +455,54 @@ header {
   margin: 16px 32px;
   flex-grow: 1;
   background-color: rgb(240, 240, 240);
-  /* background-color: rgb(40, 40, 40); */
-  /* color: white; */
-  /* border-radius: 4px; */
   padding: 32px;
   overflow-y: auto;
   border: 1px solid white;
   box-shadow:
     inset -1px 1px 2px #7474745f,
     inset 1px -1px 2px #fff;
+  display: flex;
+  align-items: center;
+}
+
+.section-content--right {
+  align-self: flex-start;
+  margin-block-start: 64px;
+  margin-inline: auto 16px;
+
+  & h1 {
+    text-align: end;
+    padding-inline: 16px;
+    padding-block: 16px 32px;
+    background-color: #161616;
+    color: var(--white_severance);
+    border-radius: 8px;
+    font-size: 1.7rem;
+
+    & span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white_sickness);
+    }
+  }
+
+  & p {
+    position: relative;
+    top: -16px;
+    left: -16px;
+    background-color: #fff;
+    font-weight: 300;
+    padding-block: 16px;
+    padding-inline: 12px 32px;
+    border-radius: 8px;
+    color: black;
+    font-size: 0.925rem;
+
+    & strong {
+      font-weight: 600;
+      color: orangered;
+    }
+  }
 }
 
 /*
@@ -476,6 +517,19 @@ header {
   display: flex;
   justify-content: center;
   position: relative;
+
+  .fire {
+    position: absolute;
+    bottom: 270px;
+    left: 136px;
+
+    & img {
+      position: absolute;
+      opacity: 0;
+      filter: drop-shadow(4px 4px 24px var(--candle));
+      animation: fire 1.6s step-end infinite;
+    }
+  }
 
   .sun {
     background: linear-gradient(
@@ -523,7 +577,7 @@ header {
     background-size: cover;
     bottom: 0;
     left: 0;
-    z-index: 10;
+    z-index: 1;
     transition: transform 0.4s 1.3s var(--transitionBackward);
   }
   &::after {
@@ -552,6 +606,16 @@ header {
     }
   }
 }
+/* Animation feu de camp */
+@keyframes fire {
+  0% {
+    opacity: 1;
+  }
+  6.25% {
+    opacity: 0;
+  }
+}
+/* Animation Homme des cavernes */
 @keyframes idle {
   to {
     transform: scaleY(96%);
@@ -610,5 +674,4 @@ header {
   }
 }
 @media (prefers-reduced-motion) {
-
 }
