@@ -11,7 +11,7 @@
 :root {
   --white_severance: #f7f4f0;
   --white_sickness: #b1ab9c;
-  /* --black_stones: #161616; */
+  --black_stones: #161616;
   --black_sickness: #272414;
   /* --red_stones: #722222; */
   /* --red_sickness: #692a1d; */
@@ -463,26 +463,52 @@ header {
     inset 1px -1px 2px #fff;
   display: flex;
   align-items: center;
+  line-height: 1.5;
+
+  & .text-block--black {
+    background-color: var(--black_stones);
+    color: var(--white_severance);
+    border-radius: 8px;
+
+    & .accent-txt {
+      font-weight: 600;
+      color: var(--white_sickness);
+    }
+  }
+
+  & .text-block--white {
+    background-color: #fff;
+    color: black;
+    border-radius: 8px;
+
+    & .accent-txt {
+      font-weight: 600;
+      color: orangered;
+    }
+  }
 }
 
-.section-content--right {
-  align-self: flex-start;
-  margin-block-start: 64px;
-  margin-inline: auto 16px;
+.section-content__img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#presentation {
+  & .section-content__text {
+    align-self: flex-start;
+    margin-block-start: 64px;
+    margin-inline: auto 16px;
+  }
 
   & h1 {
     text-align: end;
     padding-inline: 16px;
     padding-block: 16px 32px;
-    background-color: #161616;
-    color: var(--white_severance);
-    border-radius: 8px;
     font-size: 1.7rem;
 
     & span {
       font-size: 1rem;
-      font-weight: 600;
-      color: var(--white_sickness);
     }
   }
 
@@ -490,18 +516,38 @@ header {
     position: relative;
     top: -16px;
     left: -16px;
-    background-color: #fff;
     font-weight: 300;
     padding-block: 16px;
     padding-inline: 12px 32px;
-    border-radius: 8px;
-    color: black;
     font-size: 0.925rem;
+  }
+}
 
-    & strong {
-      font-weight: 600;
-      color: orangered;
+#career {
+  & .section-content__text {
+    max-width: 42%;
+    align-self: flex-start;
+    font-weight: 300;
+
+    & p {
+      padding: 12px 20px;
     }
+
+    & p:first-of-type {
+      position: relative;
+      left: 20px;
+      top: 16px;
+      /* padding-block-end: 24px; */
+    }
+
+    & p:last-of-type {
+      /* position: relative; */
+      padding-block-start: 24px;
+    }
+  }
+
+  & .section-content__img {
+    margin-inline-start: auto;
   }
 }
 

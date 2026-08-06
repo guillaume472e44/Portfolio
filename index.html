@@ -11,8 +11,8 @@
     <title>Portfolio - Guillaume Duval</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="hide-on-load">
-    <!-- <body class=""> -->
+  <!-- <body class="hide-on-load"> -->
+  <body class="">
     <header>
       <div class="header__silhouettes">
         <img
@@ -128,29 +128,69 @@
 
     <main class="screen">
       <div class="transition-grid"></div>
-      <section id="presentation" class="main-content">
+      <!-- <section id="presentation" class="main-content">
         <span class="section-title animate"></span>
         <div class="section-content">
-          <img
-            src="./assets/severed_workman.webp"
-            alt="silhouette d'un costume"
-            width="256"
-            height="256"
-          />
-          <div class="section-content--right">
-            <h1><span>Guillaume Duval,</span> développeur web Front-End</h1>
-            <p>J'aime mettre la <strong>créativité</strong> au service d'interfaces soignées et d'un code propre<strong>.</strong>
+          <div class="section-content__img">
+            <img
+              src="./assets/severed_workman.webp"
+              alt="silhouette d'un costume"
+              width="256"
+              height="256"
+            />
+          </div>
+          <div class="section-content__text">
+            <h1 class="text-block--black">
+              <span class="accent-txt">Guillaume Duval,</span> développeur web
+              Front-End
+            </h1>
+            <p class="text-block--white">
+              J'aime mettre la
+              <span class="accent-txt">créativité</span>
+              au service d'interfaces soignées et d'un code propre<span
+                class="accent-txt"
+                >.</span
+              >
             </p>
           </div>
         </div>
-      </section>
-      <!-- <section id="career" class="main-content">
+      </section> -->
+      <section id="career" class="main-content">
         <span class="section-title animate"></span>
+        <div class="section-content">
+          <div class="section-content__text">
+            <p class="text-block--white">
+              Dans l'industrie automobile,<br />
+              j'ai d'abord appris à travailler<span class="accent-txt">
+                vite</span
+              >
+              en production, puis j'ai appris à travailler
+              <span class="accent-txt">minutieusement</span> en qualité où j'ai
+              découvert la programmation sur des machines industrielles.
+            </p>
+            <p class="text-block--black">
+              La fermeture de l'entreprise où j'ai passé plus de vingt ans a été
+              l'occasion de me consacrer à ce qui m'intéresse le plus :
+              <span class="accent-txt">
+                traduire des besoins en solutions techniques.
+              </span>
+            </p>
+          </div>
+          <div class="section-content__img">
+            <img
+              src="./assets/career.webp"
+              width="440"
+              height="220"
+              alt="Illustration de mon parcours professionnel débutant dans l'industrie automobile puis dans le développement web"
+            />
+          </div>
+        </div>
       </section>
-      <section id="skills" class="main-content">
+      <!-- <section id="skills" class="main-content">
         <span class="section-title animate"></span>
-      </section>
-      <section id="contact" class="main-content">
+        <div class="section-content"></div>
+      </section> -->
+      <!-- <section id="contact" class="main-content">
         <span class="section-title animate"></span>
       </section> -->
     </main>
@@ -182,6 +222,6 @@
         />
       </div>
     </footer>
-    <script type="module" src="./scripts/index.js"></script>
+    <!-- <script type="module" src="./scripts/index.js"></script> -->
   </body>
 </html>
