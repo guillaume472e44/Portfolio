@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculateur de prêt</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <h1>Calcul des mensualités de votre emprunt</h1>
+      <form class="app__form">
+        <fieldset class="app__form__inputs-container">
+          <legend>Modalités</legend>
+          <div class="app__form__input">
+            <label for="loan">
+              <p class="label-container">
+                <span>Capital emprunté</span>
+                <span id="loan-display">0</span>
+                <span>€</span>
+              </p>
+            </label>
+            <input
+              type="range"
+              id="loan"
+              min="0"
+              max="500000"
+              step="1000"
+              value="10000"
+            />
+            <img
+              src="./assets/left-right.svg"
+              alt="chevron"
+              width="32"
+              height="32"
+              class="loan-chevron"
+            />
+          </div>
+          <div class="app__form__input">
+            <label for="interest-rate">
+              <p class="label-container">
+                <span>Taux d'intérêt</span>
+                <span id="interest-display">0</span>
+                <span>%</span>
+              </p>
+            </label>
+            <input
+              type="range"
+              id="interest"
+              min="0"
+              max="7"
+              step="0.01"
+              value="3.14"
+            />
+            <img
+              src="./assets/left-right.svg"
+              alt="chevron"
+              width="32"
+              height="32"
+              class="interest-chevron"
+            />
+          </div>
+          <div class="app__form__input">
+            <label for="insurance-rate">
+              <p class="label-container">
+                <span>Taux d'assurance</span>
+                <span id="insurance-display">0</span>
+                <span>%</span>
+              </p>
+            </label>
+            <input
+              type="range"
+              id="insurance"
+              min="0"
+              max="3"
+              step="0.01"
+              value="0.48"
+            />
+            <img
+              src="./assets/left-right.svg"
+              alt="chevron"
+              width="32"
+              height="32"
+              class="insurance-chevron"
+            />
+          </div>
+          <div class="app__form__input">
+            <label for="duration">
+              <p class="label-container">
+                <span>Durée de remboursement</span>
+                <span id="duration-display">0</span>
+                <span>ans</span>
+              </p>
+            </label>
+            <input
+              type="range"
+              id="duration"
+              min="2"
+              max="30"
+              step="1"
+              value="5"
+            />
+            <img
+              src="./assets/left-right.svg"
+              alt="chevron"
+              width="32"
+              height="32"
+              class="duration-chevron"
+            />
+          </div>
+        </fieldset>
+
+        <fieldset class="app__form__results-container">
+          <legend>Votre mensualité sera de</legend>
+          <p class="app__form__result--amount">
+            <span id="monthlyPayment--main">800</span>
+            <span>€</span>
+          </p>
+          <div class="app__form__result">
+            <p class="main-result">
+              <span>Montant de votre prêt :</span>
+              <span id="amount-result">20 000</span>
+              <span>€</span>
+            </p>
+          </div>
+          <div class="app__form__result">
+            <p class="main-result">
+              <span>Votre mensualité :</span>
+              <span id="monthlyPayment--secondary">145</span>
+              <span>€/mois</span>
+            </p>
+            <p class="secondary-result">
+              <span>dont assurance :</span>
+              <span id="monthlyInsurance">50</span>
+              <span>€/mois</span>
+            </p>
+          </div>
+          <div class="app__form__result">
+            <p class="main-result">
+              <span>Coût total du crédit :</span>
+              <span id="totalAmount">32 291</span>
+              <span>€</span>
+            </p>
+            <p class="secondary-result">
+              <span>dont assurance :</span>
+              <span id="totalInsurance">50</span>
+              <span>€</span>
+            </p>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <script src="./dist/script.js"></script>
+  </body>
+</html>

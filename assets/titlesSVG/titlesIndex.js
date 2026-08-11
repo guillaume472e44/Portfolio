@@ -1,6 +1,6 @@
 export const titlesIndex = {
   presentation: "Bienvenue.svg",
-  career: "Bienvenue.svg",
-  skills: "Bienvenue.svg",
-  contact: "Bienvenue.svg",
+  career: "Parcours-pro.svg",
+  skills: "Savoir-faire.svg",
+  contact: "Joignez-moi.svg",
 };

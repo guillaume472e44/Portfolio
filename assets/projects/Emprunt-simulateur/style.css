@@ -1,0 +1,204 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Lato, Helvetica, sans-serif;
+  color: #111;
+}
+
+/* ***                                *** *
+*                                         *
+* *** *** *** *** Globals *** *** *** *** *
+*
+***                                      */
+
+h1 {
+  @media (width < 1280px) {
+    display: none;
+  }
+}
+
+.app {
+  max-width: 1280px;
+  margin: 48px auto;
+  padding-inline: 48px;
+
+  @media (width < 1280px) {
+    margin: 16px auto;
+  }
+}
+
+fieldset {
+  border: 1px solid rgba(128, 128, 128, 0.56);
+  border-radius: 8px;
+  background-color: #00ffff10;
+}
+legend {
+  margin-inline: 8px;
+  padding-inline: 8px;
+  font-style: italic;
+  color: gray;
+}
+
+.app__form {
+  margin-top: 48px;
+  display: flex;
+  gap: 48px;
+
+  & > * {
+    padding: 32px 16px 16px;
+  }
+
+  @media (width < 1280px) {
+    flex-direction: column;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+
+.app__form__inputs-container {
+  flex-basis: 60%;
+}
+.app__form__results-container {
+  flex-basis: 40%;
+}
+
+/* ***                                *** *
+*                                         *
+* *** *** *** *** Inputs *** *** *** *** *
+*
+***                                      */
+
+.app__form__input {
+  position: relative;
+  max-width: 640px;
+  margin-inline: auto;
+
+  & img {
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+}
+
+.label-container {
+  display: flex;
+  align-items: baseline;
+
+  & span:first-child {
+    flex-grow: 1;
+    font-weight: 600;
+  }
+
+  & span:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  & span:last-child {
+    margin-inline-start: 4px;
+    color: gray;
+    font-size: 1.25rem;
+  }
+}
+
+/* personalisation input basée sur l'article : https://blog.logrocket.com/creating-custom-css-range-slider-javascript-upgrades/ */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  margin-top: 16px;
+}
+
+/* Chrome, Safari, Edge (Chromium) */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+/* Chrome, Safari, Edge (Chromium) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  width: 4px;
+  background-color: #ccc;
+  border: #ccc;
+  box-shadow: -407px 0 0 400px mediumseagreen;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+  height: 4px;
+  width: 4px;
+  background-color: #ccc;
+  border: #ccc;
+  box-shadow: -407px 0 0 400px mediumseagreen;
+}
+
+/*                                    *** *
+*                                         *
+* *** *** *** *** Results *** *** *** *** *
+*
+***                                      */
+
+.app__form__result--amount {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 800;
+  color: mediumseagreen;
+  margin-bottom: 48px;
+
+  @media (width < 1280px) {
+    margin-bottom: 32px;
+  }
+}
+
+.app__form__result {
+  padding-block: 12px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.406);
+  }
+}
+
+.main-result,
+.secondary-result {
+  display: flex;
+  gap: 2px;
+
+  & span:first-child {
+    margin-inline-end: auto;
+  }
+}
+
+.main-result {
+  font-weight: 800;
+  color: #4e4e4e;
+}
+.secondary-result {
+  font-weight: 300;
+  margin-top: 16px;
+}

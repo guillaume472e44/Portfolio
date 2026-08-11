@@ -1,21 +1,22 @@
 import { displaySVGTitle } from "./titles.js";
-import transitionGrid from "./transitionGrid.js";
+import transitions from "./transitions.js";
+// import { transitionGrid } from "./transitions.js";
 
 window.addEventListener("load", contentDisplay);
 
 function contentDisplay() {
   document.querySelector("body").classList.remove("hide-on-load");
 
-  // Grille masquant le contenu
-  transitionGrid();
+  // Masquage du contenu
+  transitions()
 
   // événement déclenché après l'apparition du dernier élément affiché
   document
-    .querySelector(".social-links__anchor:nth-child(2)")
-    .addEventListener("transitionend", pageLoaded);
+    .querySelector(".section-header__navigation button:nth-child(2)")
+    .addEventListener("transitionend", contentDisplayed);
 }
 
-function pageLoaded() {
+function contentDisplayed() {
   // Lancement des animations permanantes
   document.querySelector(".caveman-silhouette").classList.add("animate");
   document
@@ -23,16 +24,17 @@ function pageLoaded() {
     .forEach((link) => link.classList.add("animate"));
 
   // Affichage titre accueil
-  displaySVGTitle("presentation");
+  setTimeout(() => {
+    displaySVGTitle("presentation");
+  }, 2000);
 
   // premier affichage du contenu principal
-  setTimeout(() => {
-    transitionGrid("fadeIn");
-  }, 1600);
+  transitions("grid")
+  // transitionGrid("fadeIn");
 
   // Suppression listeners
   document
     .querySelector(".social-links__anchor:nth-child(2)")
-    .removeEventListener("transitionend", pageLoaded);
+    .removeEventListener("transitionend", contentDisplayed);
   window.removeEventListener("load", contentDisplay);
 }

@@ -11,12 +11,12 @@
     <title>Portfolio - Guillaume Duval</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <!-- <body class="hide-on-load"> -->
-  <body class="">
+  <body class="hide-on-load">
+  <!-- <body class=""> -->
     <header>
       <div class="header__silhouettes">
         <img
-          src="./assets/header_cliffs.webp"
+          src="./assets/illustrations/header_cliffs.webp"
           width="448"
           height="160"
           alt="silhouette de falaise"
@@ -24,7 +24,7 @@
         />
         <div class="alpinist-silhouette">
           <img
-            src="./assets/header_alpinist.webp"
+            src="./assets/illustrations/header_alpinist.webp"
             width="448"
             height="160"
             alt="silhouette d'un alpiniste accroché à la falaise"
@@ -37,6 +37,7 @@
             class="section-anchor__link active"
             data-anchor="presentation"
             data-locked="true"
+            data-position="1"
           >
             Présentation
           </button>
@@ -48,6 +49,7 @@
             class="section-anchor__link"
             data-anchor="career"
             data-locked="true"
+            data-position="2"
           >
             Parcours
           </button>
@@ -59,6 +61,7 @@
             class="section-anchor__link"
             data-anchor="skills"
             data-locked="true"
+            data-position="3"
           >
             Compétences
           </button>
@@ -70,6 +73,7 @@
             class="section-anchor__link"
             data-anchor="contact"
             data-locked="true"
+            data-position="4"
           >
             Contact
           </button>
@@ -87,7 +91,7 @@
         target="_blank"
       >
         <img
-          src="./assets/rope-link.webp"
+          src="./assets/illustrations/rope-link.webp"
           width="32"
           height="96"
           alt="silhouette d'une corde accrochée à un mousqueton"
@@ -109,7 +113,7 @@
         target="_blank"
       >
         <img
-          src="./assets/rope-link.webp"
+          src="./assets/illustrations/rope-link.webp"
           width="32"
           height="96"
           alt="silhouette d'une corde accrochée à un mousqueton"
@@ -127,13 +131,25 @@
     </div>
 
     <main class="screen">
-      <div class="transition-grid"></div>
-      <!-- <section id="presentation" class="main-content">
-        <span class="section-title animate"></span>
+      <div class="transitions-container"></div>
+      <section id="presentation" class="main-content">
+        <div class="section-header">
+          <div class="section-header__navigation">
+            <button data-direction="left">
+              <span>←</span>
+              <p class="sr-only">Se rendre à la section précédente</p>
+            </button>
+            <button data-direction="right">
+              <span>→</span>
+              <p class="sr-only">Se rendre à la section suivante</p>
+            </button>
+          </div>
+          <span class="section-header__title animate"></span>
+        </div>
         <div class="section-content">
           <div class="section-content__img">
             <img
-              src="./assets/severed_workman.webp"
+              src="./assets/illustrations/severed_workman.webp"
               alt="silhouette d'un costume"
               width="256"
               height="256"
@@ -154,9 +170,21 @@
             </p>
           </div>
         </div>
-      </section> -->
-      <section id="career" class="main-content">
-        <span class="section-title animate"></span>
+      </section>
+      <section id="career" class="main-content hidden">
+        <div class="section-header">
+          <div class="section-header__navigation">
+            <button data-direction="left">
+              <span>←</span>
+              <p class="sr-only">Se rendre à la section précédente</p>
+            </button>
+            <button data-direction="right">
+              <span>→</span>
+              <p class="sr-only">Se rendre à la section suivante</p>
+            </button>
+          </div>
+          <span class="section-header__title animate"></span>
+        </div>
         <div class="section-content">
           <div class="section-content__text">
             <p class="text-block--white">
@@ -172,13 +200,13 @@
               La fermeture de l'entreprise où j'ai passé plus de vingt ans a été
               l'occasion de me consacrer à ce qui m'intéresse le plus :
               <span class="accent-txt">
-                traduire des besoins en solutions techniques.
+                répondre à des besoins avec des solutions techniques.
               </span>
             </p>
           </div>
           <div class="section-content__img">
             <img
-              src="./assets/career.webp"
+              src="./assets/illustrations/career.webp"
               width="440"
               height="220"
               alt="Illustration de mon parcours professionnel débutant dans l'industrie automobile puis dans le développement web"
@@ -186,35 +214,73 @@
           </div>
         </div>
       </section>
-      <!-- <section id="skills" class="main-content">
-        <span class="section-title animate"></span>
-        <div class="section-content"></div>
-      </section> -->
-      <!-- <section id="contact" class="main-content">
-        <span class="section-title animate"></span>
-      </section> -->
+      <section id="skills" class="main-content hidden">
+        <div class="section-header">
+          <div class="section-header__navigation">
+            <button data-direction="left">
+              <span>←</span>
+              <p class="sr-only">Se rendre à la section précédente</p>
+            </button>
+            <button data-direction="right">
+              <span>→</span>
+              <p class="sr-only">Se rendre à la section suivante</p>
+            </button>
+          </div>
+          <span class="section-header__title animate"></span>
+        </div>
+        <div class="section-content">
+          <div class="section-content__filters">
+            <button title="Afficher tous les projets" data-category="0">
+              <span class="sr-only">Afficher tous les projets</span>
+            </button>
+            <button data-category="1">Intégration</button>
+            <button data-category="2">Interaction</button>
+            <button data-category="3">Connexion API</button>
+            <button data-category="4">Accessibilité et SEO</button>
+            <button data-category="5">Backend</button>
+            <button data-category="6">Gestion de projet</button>
+          </div>
+          <div class="section-content__folders"></div>
+        </div>
+      </section>
+      <section id="contact" class="main-content hidden">
+        <div class="section-header">
+          <div class="section-header__navigation">
+            <button data-direction="left">
+              <span>←</span>
+              <p class="sr-only">Se rendre à la section précédente</p>
+            </button>
+            <button data-direction="right">
+              <span>→</span>
+              <p class="sr-only">Se rendre à la section suivante</p>
+            </button>
+          </div>
+          <span class="section-header__title animate"></span>
+        </div>
+      </section>
     </main>
 
     <footer>
+      <!-- <div id="fps" style="margin-inline-start: 512px;">FPS: 0</div> -->
       <div class="footer__silhouettes">
         <div class="fire"></div>
         <div class="sun"></div>
         <img
-          src="./assets/THX1138.webp"
+          src="./assets/illustrations/THX1138.webp"
           width="96"
           height="96"
           alt="silhouette d'un homme devant le soleil couchant"
           class="Thx1138-silhouette"
         />
         <img
-          src="./assets/footer_landscape.webp"
+          src="./assets/illustrations/footer_landscape.webp"
           width="1120"
           height="128"
           alt="silhouette d'un paysage lointain de plaine"
           class="landscape-silouhette"
         />
         <img
-          src="./assets/footer_caveman.webp"
+          src="./assets/illustrations/footer_caveman.webp"
           width="80"
           height="80"
           alt="silhouette d'un homme des cavernes avec un gourdin"
@@ -222,6 +288,10 @@
         />
       </div>
     </footer>
-    <!-- <script type="module" src="./scripts/index.js"></script> -->
+    <script type="module" src="./scripts/index.js"></script>
+    <!-- <script type="module">
+      const gridContainer = document.querySelector(".transitions-container");
+      gridContainer.classList.add("hideContent");
+    </script> -->
   </body>
 </html>

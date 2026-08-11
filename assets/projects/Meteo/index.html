@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App météo</title>
+    <link rel="icon" href="./ressources/icons//dust-wind.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="weather-icon">
+        <img
+          src="./ressources/loader.svg"
+          alt="weather illustration"
+          width="256"
+          height="256"
+          id="weather-img"
+        />
+      </div>
+
+      <div class="data-container">
+        <form class="search-container">
+          <label for="search">
+            <img
+              id="search-img"
+              src="./ressources/mapSearch.svg"
+              alt="search input"
+              width="16"
+              height="16"
+            />
+          </label>
+          <input
+            type="text"
+            id="search"
+            placeholder="Entrer une destination..."
+          />
+        </form>
+
+        <div class="content">
+          <h2 id="city"></h2>
+          <p id="context"></p>
+        </div>
+
+        <div class="results">
+          <div class="results__container--left">
+            <p class="currentTemperature">
+              <span id="temperature"></span>
+              <span>℃</span>
+            </p>
+            <div class="currentMinMax-container">
+              <p class="currentMinMax">
+                <img
+                  src="./ressources/minimum.svg"
+                  alt="minimum temperature"
+                  width="16"
+                  height="16"
+                />
+                <span id="currentMin"></span>
+                <span>°</span>
+              </p>
+              <p class="currentMinMax">
+                <img
+                  src="./ressources/maximum.svg"
+                  alt="maximum temperature"
+                  width="16"
+                  height="16"
+                />
+                <span id="currentMax"></span>
+                <span>°</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="results__container--right">
+            <p id="currentDate"></p>
+            <p class="currentSun">
+              <img src="./ressources/sunrise.svg" alt="sunrise" />
+              <span>Lever</span>
+              <span id="sunrise"></span>
+            </p>
+            <p class="currentSun">
+              <img src="./ressources/sunset.svg" alt="sunset" />
+              <span>Coucher</span>
+              <span id="sunset"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="forecast-container">
+          <div class="forecast">
+            <p id="forecastDate1"></p>
+            <img
+              id="forecastIcon1"
+              src="./ressources/loader.svg"
+              alt="forecast icon D1"
+              width="32"
+              height="32"
+            />
+            <p id="forecastTemperature1"></p>
+          </div>
+          <div class="forecast">
+            <p id="forecastDate2"></p>
+            <img
+              id="forecastIcon2"
+              src="./ressources/loader.svg"
+              alt="forecast icon D2"
+              width="32"
+              height="32"
+            />
+            <p id="forecastTemperature2"></p>
+          </div>
+          <div class="forecast">
+            <p id="forecastDate3"></p>
+            <img
+              id="forecastIcon3"
+              src="./ressources/loader.svg"
+              alt="forecast icon D3"
+              width="32"
+              height="32"
+            />
+            <p id="forecastTemperature3"></p>
+          </div>
+          <div class="forecast">
+            <p id="forecastDate4"></p>
+            <img
+              id="forecastIcon4"
+              src="./ressources/loader.svg"
+              alt="forecast icon D4"
+              width="32"
+              height="32"
+            />
+            <p id="forecastTemperature4"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./dist/script.js"></script>
+  </body>
+</html>
