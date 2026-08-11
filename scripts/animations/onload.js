@@ -1,6 +1,5 @@
 import { displaySVGTitle } from "./titles.js";
 import transitions from "./transitions.js";
-// import { transitionGrid } from "./transitions.js";
 
 window.addEventListener("load", contentDisplay);
 

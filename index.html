@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="hide-on-load">
-  <!-- <body class=""> -->
+    <!-- <body class=""> -->
     <header>
       <div class="header__silhouettes">
         <img
@@ -135,11 +135,11 @@
       <section id="presentation" class="main-content">
         <div class="section-header">
           <div class="section-header__navigation">
-            <button data-direction="left">
+            <button data-direction="left" data-sectionTarget="contact">
               <span>←</span>
               <p class="sr-only">Se rendre à la section précédente</p>
             </button>
-            <button data-direction="right">
+            <button data-direction="right" data-sectionTarget="career">
               <span>→</span>
               <p class="sr-only">Se rendre à la section suivante</p>
             </button>
@@ -174,11 +174,11 @@
       <section id="career" class="main-content hidden">
         <div class="section-header">
           <div class="section-header__navigation">
-            <button data-direction="left">
+            <button data-direction="left" data-sectionTarget="presentation">
               <span>←</span>
               <p class="sr-only">Se rendre à la section précédente</p>
             </button>
-            <button data-direction="right">
+            <button data-direction="right" data-sectionTarget="skills">
               <span>→</span>
               <p class="sr-only">Se rendre à la section suivante</p>
             </button>
@@ -217,11 +217,11 @@
       <section id="skills" class="main-content hidden">
         <div class="section-header">
           <div class="section-header__navigation">
-            <button data-direction="left">
+            <button data-direction="left" data-sectionTarget="career">
               <span>←</span>
               <p class="sr-only">Se rendre à la section précédente</p>
             </button>
-            <button data-direction="right">
+            <button data-direction="right" data-sectionTarget="contact">
               <span>→</span>
               <p class="sr-only">Se rendre à la section suivante</p>
             </button>
@@ -246,11 +246,11 @@
       <section id="contact" class="main-content hidden">
         <div class="section-header">
           <div class="section-header__navigation">
-            <button data-direction="left">
+            <button data-direction="left" data-sectionTarget="skills">
               <span>←</span>
               <p class="sr-only">Se rendre à la section précédente</p>
             </button>
-            <button data-direction="right">
+            <button data-direction="right" data-sectionTarget="presentation">
               <span>→</span>
               <p class="sr-only">Se rendre à la section suivante</p>
             </button>
@@ -261,7 +261,6 @@
     </main>
 
     <footer>
-      <!-- <div id="fps" style="margin-inline-start: 512px;">FPS: 0</div> -->
       <div class="footer__silhouettes">
         <div class="fire"></div>
         <div class="sun"></div>
@@ -289,9 +288,5 @@
       </div>
     </footer>
     <script type="module" src="./scripts/index.js"></script>
-    <!-- <script type="module">
-      const gridContainer = document.querySelector(".transitions-container");
-      gridContainer.classList.add("hideContent");
-    </script> -->
   </body>
 </html>

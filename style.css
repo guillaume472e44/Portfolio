@@ -411,8 +411,8 @@ header {
     background-color: whitesmoke;
   }
 
-  &.verticalSweep {
-    animation: verticalSweep ease-out 2s forwards;
+  &.sweep {
+    animation: ease-in forwards;
   }
 
   & > div {
@@ -432,6 +432,11 @@ header {
 @keyframes verticalSweep {
   to {
     transform: scaleY(0);
+  }
+}
+@keyframes horizontalSweep {
+  to {
+    transform: scaleX(0);
   }
 }
 

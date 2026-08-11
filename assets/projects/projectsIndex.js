@@ -40,7 +40,7 @@ export const projects = [
     screenshotURL: "./assets/projects/Hosting-Landing-Page/Screenshot.webp",
     tags: ["html", "bootstrap"],
     description: [
-      "Intégration d'une interface avec Bootstrap inclus via cdn.",
+      "Intégration d'une interface avec Bootstrap.",
       "Landing page pour un hébergeur fictif.",
     ],
     links: [

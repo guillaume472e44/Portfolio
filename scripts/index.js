@@ -1,6 +1,5 @@
 export * from "./animations/onload.js";
 import { displaySVGTitle } from "./animations/titles.js";
-// import { transitionGrid } from "./animations/transitions.js";
 import transitions from "./animations/transitions.js";
 import loadFireSheets from "./animations/loadFireSheets.js";
 import { projects } from "../assets/projects/projectsIndex.js";
@@ -17,6 +16,7 @@ const linksButtons = document.querySelectorAll(".section-anchor__link");
 linksButtons.forEach((btn) => btn.addEventListener("click", navigation));
 
 let currentPosition = 1;
+let isOnFire = false;
 
 function navigation(e) {
   if (
@@ -25,8 +25,6 @@ function navigation(e) {
   )
     return;
 
-  // loadFireSheets();
-
   sections.forEach((section) => {
     section.classList.add("hidden");
     if (section.id === e.target.dataset.anchor) {
@@ -34,24 +32,51 @@ function navigation(e) {
     }
   });
 
+  const sweepDirection =
+    parseInt(e.target.dataset.position) > currentPosition
+      ? "vertical-bottom"
+      : "vertical-top";
+
+  transitions(sweepDirection);
   updatelinksButtonsStyle(e.target.dataset.anchor);
   displaySVGTitle(e.target.dataset.anchor);
 
-  console.log(parseInt(e.target.dataset.position) > currentPosition);
+  if (!isOnFire) {
+    loadFireSheets();
+    isOnFire = true;
+  }
+}
 
-  const sweepDirection = parseInt(e.target.dataset.position) > currentPosition
-    ? "vertical-bottom"
-    : "vertical-up";
+const skipToSectionBtns = document.querySelectorAll(
+  ".section-header__navigation button",
+);
+skipToSectionBtns.forEach((btn) =>
+  btn.addEventListener("click", skipToSection),
+);
 
-  console.log(sweepDirection);
+function skipToSection(e) {
+  sections.forEach((section) => {
+    section.classList.add("hidden");
+    if (section.id === e.currentTarget.dataset.sectiontarget) {
+      section.classList.remove("hidden");
+    }
+  });
 
-  transitions(sweepDirection);
+  transitions(`horizontal-${e.currentTarget.dataset.direction}`);
+  updatelinksButtonsStyle(e.currentTarget.dataset.sectiontarget);
+  displaySVGTitle(e.currentTarget.dataset.sectiontarget);
+
+  if (!isOnFire) {
+    loadFireSheets();
+    isOnFire = true;
+  }
 }
 
 function updatelinksButtonsStyle(link) {
   linksButtons.forEach((btn) => {
     if (btn.dataset.anchor === link) {
       btn.classList.add("active");
+      currentPosition = parseInt(btn.dataset.position);
     } else {
       btn.classList.remove("active");
     }
@@ -195,24 +220,3 @@ function updateFilterBtnStyle(categoryID) {
   });
 }
 
-// const fpsElem = document.getElementById("fps");
-// let lastTime = performance.now();
-// let frameCount = 0;
-// let fps = 0;
-
-// function updateFPS() {
-//   const now = performance.now();
-//   frameCount++;
-
-//   // Met à jour la valeur chaque seconde
-//   if (now - lastTime >= 1000) {
-//     fps = Math.round((frameCount * 1000) / (now - lastTime));
-//     fpsElem.innerText = "FPS: " + fps;
-//     frameCount = 0;
-//     lastTime = now;
-//   }
-
-//   requestAnimationFrame(updateFPS);
-// }
-
-// requestAnimationFrame(updateFPS);
