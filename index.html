@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Développeur web Front-End à Épinal et ses environs."
+    />
     <link
       rel="shortcut icon"
       href="./assets/icons/toolCase.svg"
@@ -94,14 +98,15 @@
           src="./assets/illustrations/rope-link.webp"
           width="32"
           height="96"
-          alt="silhouette d'une corde accrochée à un mousqueton"
+          alt=""
+          aria-hidden="true"
           class="social-links__anchor__rope"
         />
         <img
           src="./assets/icons/logo_Linkedin.svg"
           width="32"
           height="32"
-          alt="logo de gitHub"
+          alt="logo de LinkedIn"
           class="social-links__anchor__logo"
         />
         <div class="social-links__anchor__underline"></div>
@@ -116,7 +121,8 @@
           src="./assets/illustrations/rope-link.webp"
           width="32"
           height="96"
-          alt="silhouette d'une corde accrochée à un mousqueton"
+          alt=""
+          aria-hidden="true"
           class="social-links__anchor__rope"
         />
         <img
@@ -133,6 +139,7 @@
     <main class="screen">
       <div class="transitions-container"></div>
       <section id="presentation" class="main-content">
+        <h2 class="sr-only">Section Présentation</h2>
         <div class="section-header">
           <div class="section-header__navigation">
             <button data-direction="left" data-sectionTarget="contact">
@@ -171,7 +178,9 @@
           </div>
         </div>
       </section>
+
       <section id="career" class="main-content hidden">
+        <h2 class="sr-only">Section Parcours professionnel</h2>
         <div class="section-header">
           <div class="section-header__navigation">
             <button data-direction="left" data-sectionTarget="presentation">
@@ -209,12 +218,14 @@
               src="./assets/illustrations/career.webp"
               width="440"
               height="220"
-              alt="Illustration de mon parcours professionnel débutant dans l'industrie automobile puis dans le développement web"
+              alt="Illustration de mon parcours professionnel"
             />
           </div>
         </div>
       </section>
+
       <section id="skills" class="main-content hidden">
+        <h2 class="sr-only">Section Compétences</h2>
         <div class="section-header">
           <div class="section-header__navigation">
             <button data-direction="left" data-sectionTarget="career">
@@ -230,8 +241,8 @@
         </div>
         <div class="section-content">
           <div class="section-content__filters">
-            <button title="Afficher tous les projets" data-category="0">
-              <span class="sr-only">Afficher tous les projets</span>
+            <button title="Tous les projets" data-category="0">
+              <p class="sr-only">Afficher tous les projets</p>
             </button>
             <button data-category="1">Intégration</button>
             <button data-category="2">Interaction</button>
@@ -243,7 +254,9 @@
           <div class="section-content__folders"></div>
         </div>
       </section>
+
       <section id="contact" class="main-content hidden">
+        <h2 class="sr-only">Section Contact</h2>
         <div class="section-header">
           <div class="section-header__navigation">
             <button data-direction="left" data-sectionTarget="skills">
@@ -256,6 +269,39 @@
             </button>
           </div>
           <span class="section-header__title animate"></span>
+        </div>
+        <div class="section-content">
+          <div class="section-content__text">
+            <div class="name-container">
+              <h3 class="name">Guillaume Duval</h3>
+              <p class="info">développeur web front-end</p>
+            </div>
+          </div>
+          <div class="section-content-links">
+            <button class="link-contact btn">Copier mon mail</button>
+            <a
+              href="mailto:guillaume.duval-dev@orange.fr?subject=Contact%20via%20portfolio&body=Bonjour%20Guillaume,"
+              target="_blank"
+              class="link-contact"
+              >Ouvrir votre messagerie</a
+            >
+            <a
+              href="https://fr.linkedin.com/"
+              target="_blank"
+              class="link-contact"
+              >LinkedIn</a
+            >
+            <a
+              href="https://github.com/guillaume472e44"
+              target="_blank"
+              class="link-contact"
+              >GitHub</a
+            >
+          </div>
+          <div class="border"></div>
+          <div class="border"></div>
+          <div class="border"></div>
+          <div class="border"></div>
         </div>
       </section>
     </main>

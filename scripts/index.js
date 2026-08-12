@@ -220,3 +220,18 @@ function updateFilterBtnStyle(categoryID) {
   });
 }
 
+/**
+ * ----------------------------------------
+ * - - - - - - - Contact - - - - - - - - -
+ * ----------------------------------------
+ */
+const copyToClipboardBtn = document.querySelector(".link-contact.btn");
+copyToClipboardBtn.addEventListener("click", copyToClipboard);
+
+function copyToClipboard() {
+  navigator.clipboard.writeText("guillaume.duval-dev@orange.fr");
+  copyToClipboardBtn.classList.add("active");
+  setTimeout(() => {
+    copyToClipboardBtn.classList.remove("active");
+  }, 2000);
+}

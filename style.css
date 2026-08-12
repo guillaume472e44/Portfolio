@@ -16,6 +16,7 @@
   /* --red_stones: #722222; */
   /* --red_sickness: #692a1d; */
   --candle: #ffb93d;
+  --accentColor: #d83a00;
 
   --footer_txt: rgba(146, 235, 255, 0.75);
 
@@ -66,6 +67,7 @@ body {
   width: 1px;
   height: 1px;
   overflow: hidden;
+  font-size: 1rem;
 }
 
 /*
@@ -148,7 +150,7 @@ header {
 
     &:hover {
       background: rgba(255, 255, 255, 0.5);
-      color: orangered;
+      color: var(--accentColor);
     }
 
     &.active {
@@ -158,7 +160,7 @@ header {
 
     &:focus-visible {
       outline: none;
-      color: orangered;
+      color: var(--accentColor);
     }
   }
 
@@ -335,7 +337,7 @@ header {
   margin-block-start: 4px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  background-color: orangered;
+  background-color: var(--accentColor);
   display: none;
 }
 
@@ -412,7 +414,7 @@ header {
   }
 
   &.sweep {
-    animation: ease-in forwards;
+    animation: linear forwards;
   }
 
   & > div {
@@ -485,7 +487,7 @@ header {
   }
 
   &:focus-visible {
-    outline: 2px solid orangered;
+    outline: 2px solid var(--accentColor);
   }
 
   &:nth-child(2) {
@@ -560,7 +562,7 @@ header {
 
     & .accent-txt {
       font-weight: 600;
-      color: orangered;
+      color: var(--accentColor);
     }
   }
 }
@@ -637,7 +639,7 @@ header {
     padding-block: 24px 23px;
     padding-inline: 32px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.16);
-    box-shadow: 0px 0px 12px 0px rgba(192, 192, 192, 0.5);
+    box-shadow: 0px 0px 8px 0px inset rgba(192, 192, 192, 0.5);
     display: inline-flex;
     gap: 4px;
     text-wrap: nowrap;
@@ -668,7 +670,7 @@ header {
       background-position: center;
     }
     &:focus-visible {
-      outline: 1px solid orangered;
+      outline: 1px solid var(--accentColor);
       outline-offset: 2px;
     }
     /* Bouton no filter */
@@ -714,7 +716,7 @@ header {
   flex-shrink: 0;
   border: none;
   &:focus-visible {
-    outline: 2px solid orangered;
+    outline: 2px solid var(--accentColor);
     outline-offset: 4px;
     border-radius: 4px;
     border-bottom-left-radius: 0;
@@ -846,6 +848,97 @@ header {
   }
 }
 
+#contact {
+  .section-content {
+    flex-direction: column;
+  }
+
+  .section-content__text {
+    width: 100%;
+
+    .name-container {
+      width: fit-content;
+      margin-inline-start: auto;
+    }
+    .name {
+      font-size: 2.5rem;
+      border-top: 2px solid black;
+      color: var(--black_stones);
+      font-weight: 600;
+      padding-inline-end: 64px;
+    }
+    .info {
+      width: fit-content;
+      color: rgb(160, 160, 160);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+
+  .section-content-links {
+    margin-inline-end: auto;
+    margin-block-start: 16px;
+    padding-block-start: 16px;
+
+    .link-contact {
+      display: block;
+      border: none;
+      background: none;
+      text-decoration: none;
+      cursor: pointer;
+      font-family: system-ui, "sans-serif";
+      color: black;
+      border-left: 3px solid rgb(160, 160, 160);
+      padding: 4px 4px 4px 12px;
+      font-size: 1rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-align: start;
+      width: 256px;
+      position: relative;
+    }
+
+    .link-contact:focus {
+      outline: none;
+      background-color: white;
+      border-color: var(--accentColor);
+    }
+
+    .link-contact:hover {
+      background-color: black;
+      color: white;
+      border-color: var(--accentColor);
+    }
+
+    .link-contact.btn.active::before {
+      content: "copié !";
+      background-color: #ffb93d;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Indie Flower";
+      font-size: 1.5rem;
+      opacity: 1;
+      cursor: not-allowed;
+      color: black;
+    }
+  }
+
+  .border {
+    width: 100%;
+    height: 4px;
+    background-color: gainsboro;
+    border-radius: 80px;
+    margin-block-start: 4px;
+
+    &:nth-child(3) {
+      margin-block-start: auto;
+    }
+  }
+}
+
 /*
 ----------------------------------------------------------------
 
@@ -905,7 +998,7 @@ header {
   }
 
   &::before {
-    content: "🌚 Tous droits réservés © 2026 - Guillaume Duval";
+    content: "🌚 Tous droits réservés © 2026";
     font-family: "Indie Flower";
     font-weight: 100;
     color: var(--footer_txt);

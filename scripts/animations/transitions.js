@@ -10,7 +10,7 @@ export default function (transition) {
 }
 
 function sweep(container, transition) {
-  const duration = 1000;
+  const duration = 250;
 
   container.classList.add("sweep");
   container.style.transformOrigin = transition.split("-")[1];
