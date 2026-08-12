@@ -30,7 +30,9 @@ function sweep(container, transition) {
 function grid(container) {
   const duration = 300;
   const delay = 16;
-  const boxesCount = 144;
+  const boxesCount = window
+    .getComputedStyle(document.querySelector(":root"))
+    .getPropertyValue("--gridBoxesCount");
 
   for (let i = 0; i < boxesCount; i++) {
     const box = document.createElement("div");

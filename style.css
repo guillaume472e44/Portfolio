@@ -27,6 +27,25 @@
   --transitionBordersBtn: cubic-bezier(0.96, -2, 0.04, 2);
   --transitionElastic: cubic-bezier(0.8, -0.5, 0.2, 1.8);
 
+  --transitionDelay-1: 0.3s; /*   → Alipinist */
+  --transitionDelay-2: 0.6s; /*   → Bouton Présentation */
+  --transitionDelay-3: 0.8s; /*   → Bouton Parcours */
+  --transitionDelay-4: 1s; /*     → Bouton Compétences */
+  --transitionDelay-5: 1.2s; /*   → Bouton Contact */
+  --transitionDelay-6: 1.3s; /*   → Left Cliff */
+  --transitionDelay-7: 1.6s; /*   → Right Cliff */
+  --transitionDelay-8: 1.8s; /*   → Caveman */
+  --transitionDelay-9: 2s; /*     → Landscape */
+  --transitionDelay-10: 2.2s; /*  → Sun */
+  --transitionDelay-11: 2.4s; /*  → THX1138 */
+  --transitionDelay-12: 3s; /*    → Screen */
+  --transitionDelay-13: 3.2s; /*  → LinkedIn */
+  --transitionDelay-14: 3.4s; /*  → GitHub */
+  --transitionDelay-15: 4s; /*    → Button prev */
+  --transitionDelay-16: 4.2s; /*  → Button next */
+
+  --gridBoxesCount: 144;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -104,7 +123,8 @@ header {
     left: 0;
     transform-origin: top center;
     transform: rotateX(0deg);
-    transition: transform 0.3s 0.3s var(--transitionBackward);
+    transition: transform 0.3s var(--transitionBackward);
+    transition-delay: var(--transitionDelay-1);
 
     &::before {
       content: "";
@@ -237,7 +257,8 @@ header {
 .section-anchor {
   transform: rotateY(0);
   transform-style: preserve-3d;
-  transition: transform 0.3s 0.6s var(--transitionCircular);
+  transition: transform 0.3s var(--transitionCircular);
+  transition-delay: var(--transitionDelay-2);
 }
 
 .section-anchor.odd {
@@ -249,13 +270,13 @@ header {
 
 /* décalage temporel apparition des boutons */
 .section-anchor:nth-of-type(2) {
-  transition-delay: 0.8s;
+  transition-delay: var(--transitionDelay-3);
 }
 .section-anchor:nth-of-type(3) {
-  transition-delay: 1s;
+  transition-delay: var(--transitionDelay-4);
 }
 .section-anchor:nth-of-type(4) {
-  transition-delay: 1.2s;
+  transition-delay: var(--transitionDelay-5);
 }
 
 /* bordure verticale entre les boutons */
@@ -278,6 +299,97 @@ header {
   }
 }
 
+@media (width < 1550px) {
+  header {
+    display: flex;
+
+    .alpinist-silhouette::before {
+      display: none;
+    }
+
+    .header__navigation {
+      flex-direction: row;
+      width: 100vw;
+      position: absolute;
+      justify-content: center;
+    }
+
+    .section-anchor {
+      margin-left: 0;
+      margin-bottom: 0;
+      margin-top: 96px;
+    }
+    .section-anchor::before {
+      display: none;
+    }
+    .section-anchor:not(:last-child) {
+      margin-right: 80px;
+    }
+  }
+}
+@media (width < 1120px) {
+  header {
+    .section-anchor__borders--left,
+    .section-anchor__borders--right {
+      display: none;
+    }
+
+    .section-anchor {
+      margin-top: 96px;
+    }
+
+    .section-anchor:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+}
+
+@media (width < 960px) {
+  header {
+    & .header__silhouettes .alpinist-silhouette {
+      display: none;
+    }
+    .header__navigation {
+      justify-content: flex-start;
+    }
+    .section-anchor:first-child {
+      margin-left: 160px;
+    }
+    .section-anchor:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+}
+
+@media (width < 800px) {
+  header {
+    .header__silhouettes {
+      display: none;
+    }
+    .header__navigation {
+      justify-content: center;
+    }
+
+    .section-anchor {
+      margin-top: 96px;
+    }
+
+    .section-anchor:not(:last-child) {
+      margin-right: 4px;
+    }
+
+    .section-anchor:first-child {
+      margin-left: 0px;
+    }
+  }
+}
+
+@media (width < 560px) {
+  .header__navigation {
+    display: none;
+  }
+}
+
 /*
 ----------------------------------------------------------------
 
@@ -293,6 +405,7 @@ header {
   display: flex;
   flex-direction: row-reverse;
   gap: 40px;
+  z-index: 101;
 }
 .social-links__anchor {
   text-decoration: none;
@@ -300,7 +413,8 @@ header {
   flex-direction: column;
   transform-origin: top;
   transform: rotateZ(-5deg);
-  transition: transform 0.6s 3.2s var(--transitionElastic);
+  transition: transform 0.6s var(--transitionElastic);
+  transition-delay: var(--transitionDelay-13);
 
   &.animate {
     animation: 2.4s ease-in-out 0s infinite alternate flow;
@@ -308,7 +422,7 @@ header {
 }
 .social-links__anchor {
   &:nth-child(2) {
-    transition-delay: 3.4s;
+    transition-delay: var(--transitionDelay-14);
   }
   &.animate:nth-child(2) {
     animation-duration: 2.6s;
@@ -358,6 +472,41 @@ header {
   }
 }
 
+@media (width < 1120px) {
+  .social-links__anchor__rope {
+    display: none;
+  }
+
+  .social-links__anchor__logo {
+    margin-top: 8px;
+  }
+
+  .social-links__anchor {
+    transform: rotateZ(0);
+
+    &.animate {
+      animation: none;
+    }
+  }
+}
+@media (width < 800px) {
+  .social-links {
+    padding-block-end: 12px;
+    width: 100vw;
+    border-bottom: 1px solid white;
+    right: 0;
+  }
+  .social-links__anchor:nth-child(1) {
+    margin-inline-end: 32px;
+  }
+  .social-links__anchor:hover,
+  .social-links__anchor:focus {
+    .social-links__anchor__underline {
+      display: none;
+    }
+  }
+}
+
 /*
 ----------------------------------------------------------------
 
@@ -397,7 +546,8 @@ header {
   }
 
   transform-origin: bottom center;
-  transition: transform 0.4s 3s var(--transitionElastic);
+  transition: transform 0.4s var(--transitionElastic);
+  transition-delay: var(--transitionDelay-12);
 }
 
 .transitions-container {
@@ -468,7 +618,8 @@ header {
   cursor: pointer;
   font-size: 1.5rem;
   transform-origin: bottom left;
-  transition: transform 0.2s 4s var(--transitionElastic);
+  transition: transform 0.2s var(--transitionElastic);
+  transition-delay: var(--transitionDelay-15);
   /* overflow: hidden; */
   box-shadow:
     -1px 1px 2px #c5c5c5,
@@ -491,7 +642,7 @@ header {
   }
 
   &:nth-child(2) {
-    transition-delay: 4.2s;
+    transition-delay: var(--transitionDelay-16);
   }
 }
 
@@ -877,8 +1028,7 @@ header {
 
   .section-content-links {
     margin-inline-end: auto;
-    margin-block-start: 16px;
-    padding-block-start: 16px;
+    margin-block: auto;
 
     .link-contact {
       display: block;
@@ -932,9 +1082,127 @@ header {
     background-color: gainsboro;
     border-radius: 80px;
     margin-block-start: 4px;
+  }
+}
 
-    &:nth-child(3) {
+@media (width < 1550px) {
+  .screen {
+    margin-top: 160px;
+  }
+  #presentation {
+    & .section-content__text {
+      margin-block: auto;
+      margin-inline: 32px auto;
+    }
+  }
+  #career {
+    & .section-content__text {
+      align-self: center;
+      max-width: 50%;
+
+      & p:first-of-type {
+        top: 0;
+        left: 0;
+      }
+    }
+    & .section-content__img {
+      margin-inline-start: 48px;
+    }
+  }
+}
+@media (width < 1120px) {
+  .screen {
+    --screenWidth: clamp(320px, 80vw, 1024px);
+    --screenHeight: 640px;
+
+    /* margin-top: 200px; */
+  }
+  #presentation {
+    & .section-content {
+      flex-direction: column;
+    }
+    & .section-content__text {
+      margin: auto;
+
+      & p {
+        left: 0;
+        padding-inline: 16px;
+      }
+    }
+  }
+  #career {
+    & .section-content {
+      flex-direction: column;
+    }
+    & .section-content__text {
+      display: flex;
+      max-width: 100%;
+    }
+    & .section-content__img {
+      margin-inline: auto;
       margin-block-start: auto;
+    }
+  }
+  #skills {
+    & .section-content__folders {
+      align-items: center;
+    }
+    .fileholder {
+      --fileholder_width: 192px;
+    }
+  }
+}
+@media (width < 800px) {
+  #career {
+    & .section-content__text {
+      flex-direction: column;
+    }
+  }
+}
+@media (width < 960px) {
+  .screen {
+    --screenWidth: clamp(320px, 90vw, 1024px);
+  }
+  #presentation {
+    & .section-content__img {
+      margin-inline: 48px;
+    }
+
+    & .section-content__text {
+      & h1 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+@media (width < 560px) {
+  .screen {
+    margin-top: 64px;
+    --screenHeight: 720px;
+  }
+  #skills {
+    .fileholder {
+      --fileholder_width: 224px;
+    }
+  }
+}
+
+@media (width < 480px) {
+  .section-header {
+    margin-inline: 16px;
+  }
+  .section-header__title {
+    max-width: 50%;
+  }
+  .section-content {
+    padding: 16px;
+    margin: 16px;
+  }
+  #skills {
+    .section-content__filters,
+    .section-content__folders {
+      padding-inline: 16px;
     }
   }
 }
@@ -978,7 +1246,8 @@ header {
     left: 50%;
     box-shadow: 0 0 4px var(--white_severance);
     filter: blur(4px);
-    transition: transform 0.5s 2.2s var(--transitionElastic);
+    transition: transform 0.5s var(--transitionElastic);
+    transition-delay: var(--transitionDelay-10);
   }
 
   .Thx1138-silhouette {
@@ -987,14 +1256,16 @@ header {
     bottom: 40px;
     filter: contrast(10%) blur(1.5px);
     transform-origin: bottom;
-    transition: transform 0.5s 2.4s var(--transitionElastic);
+    transition: transform 0.5s var(--transitionElastic);
+    transition-delay: var(--transitionDelay-11);
   }
 
   .landscape-silouhette {
     filter: blur(2px) contrast(40%);
     position: relative;
     bottom: -2px;
-    transition: transform 0.4s 2s var(--transitionElastic);
+    transition: transform 0.4s var(--transitionElastic);
+    transition-delay: var(--transitionDelay-9);
   }
 
   &::before {
@@ -1012,7 +1283,8 @@ header {
     bottom: 0;
     left: 0;
     z-index: 1;
-    transition: transform 0.4s 1.3s var(--transitionBackward);
+    transition: transform 0.4s var(--transitionBackward);
+    transition-delay: var(--transitionDelay-6);
   }
   &::after {
     content: "";
@@ -1024,7 +1296,8 @@ header {
     bottom: 0;
     right: 0;
     filter: contrast(60%);
-    transition: transform 0.4s 1.6s var(--transitionBackward);
+    transition: transform 0.4s var(--transitionBackward);
+    transition-delay: var(--transitionDelay-7);
   }
 
   .caveman-silhouette {
@@ -1033,7 +1306,8 @@ header {
     bottom: 96px;
     right: 288px;
     transform-origin: bottom;
-    transition: transform 0.5s 1.8s var(--transitionElastic);
+    transition: transform 0.5s var(--transitionElastic);
+    transition-delay: var(--transitionDelay-8);
 
     &.animate {
       animation: 0.6s ease-in-out 0s infinite alternate idle;
@@ -1056,6 +1330,17 @@ header {
   }
 }
 
+@media (width < 1120px) {
+  .footer__silhouettes {
+    &::before,
+    &::after,
+    .fire,
+    .caveman-silhouette {
+      display: none;
+    }
+  }
+}
+
 /*
 ---------------------------------------
 
@@ -1074,6 +1359,7 @@ header {
 
 ----------------------------------------------------------------
 */
+
 @media (prefers-reduced-motion: no-preference) {
   body.hide-on-load {
     & .cliffs-silhouette {
