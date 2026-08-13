@@ -13,8 +13,6 @@
   --white_sickness: #b1ab9c;
   --black_stones: #161616;
   --black_sickness: #272414;
-  /* --red_stones: #722222; */
-  /* --red_sickness: #692a1d; */
   --candle: #ffb93d;
   --accentColor: #d83a00;
 
@@ -44,12 +42,62 @@
   --transitionDelay-15: 4s; /*    → Button prev */
   --transitionDelay-16: 4.2s; /*  → Button next */
 
+  --lastElementDisplayed: calc(var(--transitionDelay-16) + 0.2s);
+
   --gridBoxesCount: 144;
+  --gridColumns: 16;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media (width < 1120px) {
+    --transitionDelay-9: 1.3s; /*   → Landscape */
+    --transitionDelay-10: 1.5s; /*  → Sun */
+    --transitionDelay-11: 1.7s; /*  → THX1138 */
+    --transitionDelay-12: 2.3s; /*  → Screen */
+    --transitionDelay-13: 2.5s; /*  → LinkedIn */
+    --transitionDelay-14: 2.7s; /*  → GitHub */
+    --transitionDelay-15: 3.3s; /*  → Button prev */
+    --transitionDelay-16: 3.5s; /*  → Button next */
+
+    --lastElementDisplayed: calc(var(--transitionDelay-16) + 0.2s);
+  }
+  @media (width < 800px) {
+    --transitionDelay-2: 0s; /*     → Bouton Présentation */
+    --transitionDelay-3: 0.2s; /*   → Bouton Parcours */
+    --transitionDelay-4: 0.4s; /*   → Bouton Compétences */
+    --transitionDelay-5: 0.6s; /*   → Bouton Contact */
+    --transitionDelay-9: 0.8s; /*   → Landscape */
+    --transitionDelay-10: 1s; /*    → Sun */
+    --transitionDelay-11: 1.2s; /*  → THX1138 */
+    --transitionDelay-12: 1.5s; /*  → Screen */
+    --transitionDelay-13: 1.8s; /*  → LinkedIn */
+    --transitionDelay-14: 2s; /*    → GitHub */
+    --transitionDelay-15: 2.3s; /*  → Button prev */
+    --transitionDelay-16: 2.5s; /*  → Button next */
+
+    --lastElementDisplayed: calc(var(--transitionDelay-16) + 0.2s);
+
+    --gridBoxesCount: 96;
+    --gridColumns: 12;
+  }
+  @media (width < 560px) {
+    --transitionDelay-12: 0s; /*    → Screen */
+    --transitionDelay-9: 0.3s; /*   → Landscape */
+    --transitionDelay-10: 0.6s; /*  → Sun */
+    --transitionDelay-11: 0.8s; /*  → THX1138 */
+    --transitionDelay-13: 1s; /*    → LinkedIn */
+    --transitionDelay-14: 1.2s; /*  → GitHub */
+    --transitionDelay-15: 1.6s; /*  → Button prev */
+    --transitionDelay-16: 1.8s; /*  → Button next */
+
+    --lastElementDisplayed: calc(var(--transitionDelay-16) + 0.2s);
+
+    --gridBoxesCount: 48;
+    --gridColumns: 6;
+  }
 }
 
 body {
@@ -100,8 +148,6 @@ body {
 header {
   position: absolute;
   z-index: 100;
-  /* background-color: rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(8px) ; */
 }
 
 /* Cliff and alpinist illustrations */
@@ -343,7 +389,6 @@ header {
     }
   }
 }
-
 @media (width < 960px) {
   header {
     & .header__silhouettes .alpinist-silhouette {
@@ -360,7 +405,6 @@ header {
     }
   }
 }
-
 @media (width < 800px) {
   header {
     .header__silhouettes {
@@ -383,7 +427,6 @@ header {
     }
   }
 }
-
 @media (width < 560px) {
   .header__navigation {
     display: none;
@@ -416,15 +459,14 @@ header {
   transition: transform 0.6s var(--transitionElastic);
   transition-delay: var(--transitionDelay-13);
 
-  &.animate {
-    animation: 2.4s ease-in-out 0s infinite alternate flow;
-  }
+  animation: 2.4s ease-in-out 0s infinite alternate flow;
+  animation-delay: var(--lastElementDisplayed);
 }
 .social-links__anchor {
   &:nth-child(2) {
     transition-delay: var(--transitionDelay-14);
   }
-  &.animate:nth-child(2) {
+  &:nth-child(2) {
     animation-duration: 2.6s;
   }
 }
@@ -441,9 +483,6 @@ header {
 .social-links__anchor__rope {
   filter: contrast(75%);
 }
-/* .social-links__anchor__logo{
-  transform: translateY(2px);
-} */
 
 .social-links__anchor__underline {
   width: 100%;
@@ -484,9 +523,7 @@ header {
   .social-links__anchor {
     transform: rotateZ(0);
 
-    &.animate {
-      animation: none;
-    }
+    animation: none;
   }
 }
 @media (width < 800px) {
@@ -556,7 +593,7 @@ header {
   z-index: 5;
   margin: 88px 40px 16px;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: repeat(var(--gridColumns), 1fr);
   pointer-events: none;
 
   &.hideContent {
@@ -827,7 +864,6 @@ header {
     /* Bouton no filter */
     &:first-child {
       width: 32px;
-      /* margin-inline-start: 4px; */
       background-image: url(./assets/icons/reset.svg);
       background-repeat: no-repeat;
       background-position: center;
@@ -1175,7 +1211,6 @@ header {
     }
   }
 }
-
 @media (width < 560px) {
   .screen {
     margin-top: 64px;
@@ -1187,7 +1222,6 @@ header {
     }
   }
 }
-
 @media (width < 480px) {
   .section-header {
     margin-inline: 16px;
@@ -1214,6 +1248,10 @@ header {
 
 ----------------------------------------------------------------
 */
+
+footer {
+  overflow-x: clip;
+}
 
 .footer__silhouettes {
   display: flex;
@@ -1309,9 +1347,8 @@ header {
     transition: transform 0.5s var(--transitionElastic);
     transition-delay: var(--transitionDelay-8);
 
-    &.animate {
-      animation: 0.6s ease-in-out 0s infinite alternate idle;
-    }
+    animation: 0.6s ease-in-out 0s infinite alternate idle;
+    animation-delay: var(--lastElementDisplayed);
   }
 }
 /* Animation feu de camp */
@@ -1325,6 +1362,9 @@ header {
 }
 /* Animation Homme des cavernes */
 @keyframes idle {
+  from {
+    transform: scaleY(100%);
+  }
   to {
     transform: scaleY(96%);
   }
@@ -1406,6 +1446,4 @@ header {
       transform: scaleY(0);
     }
   }
-}
-@media (prefers-reduced-motion) {
 }
