@@ -1,6 +1,7 @@
 export * from "./animations/onload.js";
 import { displaySVGTitle } from "./animations/titles.js";
 import transitions from "./animations/transitions.js";
+import explosion from "./animations/explosion.js";
 import loadFireSheets from "./animations/loadFireSheets.js";
 import { projects } from "../assets/projects/projectsIndex.js";
 import tagsIndex from "../assets/tags/tagsIndex.js";
@@ -41,10 +42,8 @@ function navigation(e) {
   updatelinksButtonsStyle(e.target.dataset.anchor);
   displaySVGTitle(e.target.dataset.anchor);
 
-  if (!isOnFire) {
-    loadFireSheets();
-    isOnFire = true;
-  }
+  // Mise en route du feu de camp lors du premier changement de section
+  if (!isOnFire) startFire();
 }
 
 const skipToSectionBtns = document.querySelectorAll(
@@ -66,10 +65,8 @@ function skipToSection(e) {
   updatelinksButtonsStyle(e.currentTarget.dataset.sectiontarget);
   displaySVGTitle(e.currentTarget.dataset.sectiontarget);
 
-  if (!isOnFire) {
-    loadFireSheets();
-    isOnFire = true;
-  }
+  // Mise en route du feu de camp lors du premier changement de section
+  if (!isOnFire) startFire();
 }
 
 function updatelinksButtonsStyle(link) {
@@ -81,6 +78,16 @@ function updatelinksButtonsStyle(link) {
       btn.classList.remove("active");
     }
   });
+}
+
+function startFire() {
+  explosion({
+    selector: document.querySelector(".footer__silhouettes .explosion"),
+    delay: 0,
+    imgToDisplay: document.querySelector(".fire"),
+  });
+  loadFireSheets();
+  isOnFire = true;
 }
 
 /**
@@ -102,7 +109,7 @@ projects.sort((a, b) => {
 
 projects.forEach((project, index) => {
   const buttonFolder = document.createElement("button");
-  const popover = document.createElement("div");
+  const popover = document.createElement("article");
 
   buttonFolder.classList.add("fileholder");
   buttonFolder.dataset.filters = project.filters;

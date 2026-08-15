@@ -23,7 +23,7 @@ export const projects = [
     screenshotURL: "./assets/projects/barbier/Screenshot.webp",
     tags: ["html", "css", "js"],
     description: [
-      "Intégration d'une interface à partir d'un modèle.",
+      "Intégration d'une interface.",
       "Site vitrine fictif pour un barbier situé à Paris.",
     ],
     links: [

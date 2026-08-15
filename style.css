@@ -42,7 +42,7 @@
   --transitionDelay-15: 4s; /*    → Button prev */
   --transitionDelay-16: 4.2s; /*  → Button next */
 
-  --lastElementDisplayed: calc(var(--transitionDelay-16) + 0.2s);
+  --triggeringItem: calc(var(--transitionDelay-16) + 0.2s);
 
   --gridBoxesCount: 144;
   --gridColumns: 16;
@@ -53,47 +53,47 @@
   -moz-osx-font-smoothing: grayscale;
 
   @media (width < 1120px) {
-    --transitionDelay-9: 1.3s; /*   → Landscape */
-    --transitionDelay-10: 1.5s; /*  → Sun */
-    --transitionDelay-11: 1.7s; /*  → THX1138 */
-    --transitionDelay-12: 2.3s; /*  → Screen */
-    --transitionDelay-13: 2.5s; /*  → LinkedIn */
-    --transitionDelay-14: 2.7s; /*  → GitHub */
-    --transitionDelay-15: 3.3s; /*  → Button prev */
-    --transitionDelay-16: 3.5s; /*  → Button next */
+    --transitionDelay-9: 6.4s; /*   → Landscape */
+    --transitionDelay-10: 6.6s; /*  → Sun */
+    --transitionDelay-11: 6.8s; /*  → THX1138 */
+    --transitionDelay-12: 1.3s; /*  → Screen */
+    --transitionDelay-13: 5.8s; /*  → LinkedIn */
+    --transitionDelay-14: 6s; /*    → GitHub */
+    --transitionDelay-15: 1.8s; /*  → Button prev */
+    --transitionDelay-16: 2s; /*    → Button next */
 
-    --lastElementDisplayed: calc(var(--transitionDelay-16) + 0.2s);
+    --triggeringItem: calc(var(--transitionDelay-16) + 0.2s);
   }
   @media (width < 800px) {
     --transitionDelay-2: 0s; /*     → Bouton Présentation */
     --transitionDelay-3: 0.2s; /*   → Bouton Parcours */
     --transitionDelay-4: 0.4s; /*   → Bouton Compétences */
     --transitionDelay-5: 0.6s; /*   → Bouton Contact */
-    --transitionDelay-9: 0.8s; /*   → Landscape */
-    --transitionDelay-10: 1s; /*    → Sun */
-    --transitionDelay-11: 1.2s; /*  → THX1138 */
-    --transitionDelay-12: 1.5s; /*  → Screen */
-    --transitionDelay-13: 1.8s; /*  → LinkedIn */
-    --transitionDelay-14: 2s; /*    → GitHub */
-    --transitionDelay-15: 2.3s; /*  → Button prev */
-    --transitionDelay-16: 2.5s; /*  → Button next */
+    --transitionDelay-9: 5.2s; /*   → Landscape */
+    --transitionDelay-10: 5.4s; /*  → Sun */
+    --transitionDelay-11: 5.6s; /*  → THX1138 */
+    --transitionDelay-12: 0.8s; /*  → Screen */
+    --transitionDelay-13: 3.8s; /*  → LinkedIn */
+    --transitionDelay-14: 4s; /*    → GitHub */
+    --transitionDelay-15: 1.3s; /*  → Button prev */
+    --transitionDelay-16: 1.5s; /*  → Button next */
 
-    --lastElementDisplayed: calc(var(--transitionDelay-16) + 0.2s);
+    --triggeringItem: calc(var(--transitionDelay-16) + 0.2s);
 
     --gridBoxesCount: 96;
     --gridColumns: 12;
   }
   @media (width < 560px) {
     --transitionDelay-12: 0s; /*    → Screen */
-    --transitionDelay-9: 0.3s; /*   → Landscape */
-    --transitionDelay-10: 0.6s; /*  → Sun */
-    --transitionDelay-11: 0.8s; /*  → THX1138 */
-    --transitionDelay-13: 1s; /*    → LinkedIn */
-    --transitionDelay-14: 1.2s; /*  → GitHub */
-    --transitionDelay-15: 1.6s; /*  → Button prev */
-    --transitionDelay-16: 1.8s; /*  → Button next */
+    --transitionDelay-9: 4.6s; /*   → Landscape */
+    --transitionDelay-10: 4.8s; /*  → Sun */
+    --transitionDelay-11: 5s; /*    → THX1138 */
+    --transitionDelay-13: 3.1s; /*  → LinkedIn */
+    --transitionDelay-14: 3.3s; /*  → GitHub */
+    --transitionDelay-15: 0.5s; /*  → Button prev */
+    --transitionDelay-16: 0.7s; /*  → Button next */
 
-    --lastElementDisplayed: calc(var(--transitionDelay-16) + 0.2s);
+    --triggeringItem: calc(var(--transitionDelay-16) + 0.2s);
 
     --gridBoxesCount: 48;
     --gridColumns: 6;
@@ -125,6 +125,12 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+}
+
+@media (height < 920px) {
+  body {
+    overflow-y: scroll;
+  }
 }
 
 .sr-only {
@@ -460,7 +466,7 @@ header {
   transition-delay: var(--transitionDelay-13);
 
   animation: 2.4s ease-in-out 0s infinite alternate flow;
-  animation-delay: var(--lastElementDisplayed);
+  animation-delay: var(--triggeringItem);
 }
 .social-links__anchor {
   &:nth-child(2) {
@@ -591,7 +597,7 @@ header {
   position: absolute;
   inset: 0;
   z-index: 5;
-  margin: 88px 40px 16px;
+  margin: 88px 32px 16px;
   display: grid;
   grid-template-columns: repeat(var(--gridColumns), 1fr);
   pointer-events: none;
@@ -755,10 +761,54 @@ header {
   }
 }
 
-.section-content__img img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.section-content__img {
+  position: relative;
+
+  & img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .profilPicture {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+    & img {
+      width: 50%;
+      height: 50%;
+      margin-top: 4px;
+      object-fit: cover;
+      object-position: 0px -3px;
+    }
+  }
+
+  .explosion {
+    position: absolute;
+    z-index: 10;
+    top: -25%;
+    width: 100%;
+    height: 100%;
+
+    & img {
+      position: absolute;
+      opacity: 0;
+      animation: explosion 0.9s step-end;
+    }
+  }
+}
+
+/* Animation Explosion */
+@keyframes explosion {
+  0% {
+    opacity: 1;
+  }
+  11.12% {
+    opacity: 0;
+  }
 }
 
 #presentation {
@@ -827,7 +877,7 @@ header {
     padding-block: 24px 23px;
     padding-inline: 32px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.16);
-    box-shadow: 0px 0px 8px 0px inset rgba(192, 192, 192, 0.5);
+    box-shadow: 0px 8px 32px 0px rgba(192, 192, 192, 0.5);
     display: inline-flex;
     gap: 4px;
     text-wrap: nowrap;
@@ -1157,8 +1207,11 @@ header {
     & .section-content {
       flex-direction: column;
     }
+    & .section-content__img {
+      margin-top: auto;
+    }
     & .section-content__text {
-      margin: auto;
+      margin: 0 auto;
 
       & p {
         left: 0;
@@ -1201,7 +1254,7 @@ header {
   }
   #presentation {
     & .section-content__img {
-      margin-inline: 48px;
+      margin-inline: auto;
     }
 
     & .section-content__text {
@@ -1216,6 +1269,11 @@ header {
     margin-top: 64px;
     --screenHeight: 720px;
   }
+  #presentation {
+    & .section-content__img {
+      margin-block-end: 32px;
+    }
+  }
   #skills {
     .fileholder {
       --fileholder_width: 224px;
@@ -1223,6 +1281,9 @@ header {
   }
 }
 @media (width < 480px) {
+  .transitions-container {
+    margin: 88px 16px 16px;
+  }
   .section-header {
     margin-inline: 16px;
   }
@@ -1257,6 +1318,19 @@ footer {
   display: flex;
   justify-content: center;
   position: relative;
+
+  .explosion {
+    position: absolute;
+    z-index: 10;
+    bottom: calc(270px + 64px);
+    left: calc(136px - 64px);
+
+    & img {
+      position: absolute;
+      opacity: 0;
+      animation: explosion 0.9s step-end;
+    }
+  }
 
   .fire {
     position: absolute;
@@ -1348,7 +1422,7 @@ footer {
     transition-delay: var(--transitionDelay-8);
 
     animation: 0.6s ease-in-out 0s infinite alternate idle;
-    animation-delay: var(--lastElementDisplayed);
+    animation-delay: var(--triggeringItem);
   }
 }
 /* Animation feu de camp */
@@ -1374,9 +1448,20 @@ footer {
   .footer__silhouettes {
     &::before,
     &::after,
+    .explosion,
     .fire,
     .caveman-silhouette {
       display: none;
+    }
+    &::before {
+      display: flex;
+      width: fit-content;
+      height: fit-content;
+      content: "🌚 Tous droits réservés © 2026";
+      font-family: "Indie Flower";
+      font-weight: 100;
+      color: var(--white_severance);
+      background-image: none;
     }
   }
 }
@@ -1384,12 +1469,13 @@ footer {
 /*
 ---------------------------------------
 
-**** Cache les sections ou les projets
+**** Cache n'importe quel élément
+(sections, projets ou images)
 
 ---------------------------------------
 */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /*

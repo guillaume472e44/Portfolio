@@ -1,4 +1,5 @@
 import { displaySVGTitle } from "./titles.js";
+import explosion from "./explosion.js";
 import transitions from "./transitions.js";
 
 window.addEventListener("load", contentDisplay);
@@ -9,7 +10,7 @@ function contentDisplay() {
   // Masquage du contenu main
   transitions();
 
-  const lastIllustration = {
+  const triggeringItem = {
     selector: document.querySelector(
       ".section-header__navigation button:nth-child(2)",
     ),
@@ -31,18 +32,24 @@ function contentDisplay() {
 
   setTimeout(
     () => {
-      // Affichage titre accueil
-      setTimeout(() => {
-        displaySVGTitle("presentation");
-      }, 2000);
-
-      // premier affichage du contenu principal
+      // premier affichage du contenu main
       transitions("grid");
-      // transitionGrid("fadeIn");
 
       // Suppression listener
       window.removeEventListener("load", contentDisplay);
+
+      // décalage affichage titre de section et photo de profil
+      setTimeout(() => {
+        // Affichage titre accueil
+        displaySVGTitle("presentation");
+        // Affichage photo de profil
+        explosion({
+          selector: document.querySelector(".section-content__img .explosion"),
+          delay: 1800,
+          imgToDisplay: document.querySelector(".profilPicture"),
+        });
+      }, 1000);
     },
-    (lastIllustration.delay() + lastIllustration.duration()) * 1000,
+    (triggeringItem.delay() + triggeringItem.duration()) * 1000,
   );
 }
