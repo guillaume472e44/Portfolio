@@ -301,7 +301,7 @@ export const projects = [
     title: "Qwenta",
     filters: ["6"],
     screenshotURL: "./assets/projects/Qwenta/Screenshot.webp",
-    tags: ["react", "reactRouter", "nodejs", "express", "mongoose", "mongoDB"],
+    tags: ["react", "reactRouter", "redux", "nodejs", "express", "mongoose", "mongoDB"],
     description: [
       "Projet consistant à endosser le rôle d'un Product Owner afin de planifier le développement d'un site.",
       "• Rédaction d'un document de spécifications techniques.",
