@@ -147,6 +147,7 @@ body {
 header {
   position: absolute;
   z-index: 100;
+  pointer-events: none;
 }
 
 /* Cliff and alpinist illustrations */
@@ -186,6 +187,7 @@ header {
 .header__navigation {
   display: flex;
   flex-direction: column;
+  pointer-events: auto;
 }
 
 /* Boutons de navigation */
@@ -846,6 +848,7 @@ header {
       padding-inline: 32px;
       padding-block: 16px 32px;
       font-size: 1.7rem;
+      border-top-right-radius: 0px;
 
       & span {
         font-size: 1rem;
@@ -860,6 +863,8 @@ header {
       padding-block: 16px 24px;
       padding-inline: 32px;
       font-size: 0.925rem;
+      border-top-right-radius: 8px;
+      border-bottom-left-radius: 0px;
     }
   }
 }
@@ -1358,7 +1363,7 @@ footer {
 
   .explosion {
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     bottom: calc(270px + 64px);
     left: calc(136px - 64px);
 
@@ -1377,7 +1382,9 @@ footer {
     & img {
       position: absolute;
       opacity: 0;
-      filter: drop-shadow(4px 4px 24px var(--candle));
+      @supports (not (background: -webkit-named-image(i))) {
+        filter: drop-shadow(4px 4px 24px var(--candle));
+      }
       animation: fire 1.6s step-end infinite;
     }
   }
@@ -1478,6 +1485,15 @@ footer {
   }
   to {
     transform: scaleY(96%);
+  }
+}
+
+@media (width < 1480px) and (height < 930px) {
+  .footer__silhouettes {
+    & .explosion,
+    & .fire {
+      display: none;
+    }
   }
 }
 

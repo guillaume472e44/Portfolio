@@ -1,26 +1,27 @@
-<div style="font-size: 48px">Bonjour, je suis Guillaume </div>
-
----
+# <p align="center">Bonjour, je suis Guillaume</p>
 
 <br>
 
 ```
 >_ Développeur web Front-end basé à Épinal.
->_ J'aime concevoir des applications web modernes, performantes et accessibles.
+>_ Je conçois des applications web modernes, performantes et accessibles.
 ```
 
 <br>
 
 ---
 
-**🛠️ Je travaille avec les technologies les plus populaires :**
+---
 
-<div style="display:flex;align-items:center">
-<div style="margin-inline-end:auto">
+---
 
-**👉 Front-End** :
+---
 
-</div>
+<br>
+<div align="end">
+
+## 🛠️ Je travaille avec les technologies les plus populaires :
+
 
 ![logo](assets/tags/html.svg)
 ![logo](assets/tags/css.svg)
@@ -31,32 +32,34 @@
 ![logo](assets/tags/react.svg)
 ![logo](assets/tags/react-router.svg)
 ![logo](assets/tags/redux.svg)
-![logo](assets/tags/ts.svg)
+![logo](assets/tags/ts.svg)  
+<u>_Front-End_</u>
 
-</div>
+## </div>
 
-<div style="display:flex;align-items:center">
-<div style="margin-inline-end:auto">
-
-**👉 Back-End** :
-
-</div>
+<div align="end">
 
 ![logo](assets/tags/nodejs.svg)
 ![logo](assets/tags/express.svg)
 ![logo](assets/tags/mongoose.svg)
-![logo](assets/tags/mongoDB.svg)
+![logo](assets/tags/mongoDB.svg)  
+<u>_Back-End_</u>
 
 </div>
+
+<br>
+
+---
+
+---
+
+---
 
 ---
 
 <br>
 
-<div style="font-size:24px; margin-block-end:16px">
-📫 Comment me contacter ?
-
-</div>
+### <u>📫 Comment me contacter ?</u>
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/guillaume-duval-bb8982429)
 
