@@ -11,17 +11,13 @@
 
 ---
 
----
-
----
-
----
-
 <br>
-<div align="end">
 
 ## 🛠️ Je travaille avec les technologies les plus populaires :
 
+<div align="center">
+
+_Front-End_
 
 ![logo](assets/tags/html.svg)
 ![logo](assets/tags/css.svg)
@@ -32,28 +28,18 @@
 ![logo](assets/tags/react.svg)
 ![logo](assets/tags/react-router.svg)
 ![logo](assets/tags/redux.svg)
-![logo](assets/tags/ts.svg)  
-<u>_Front-End_</u>
+![logo](assets/tags/ts.svg)
 
-## </div>
+#
 
-<div align="end">
+_Back-End_
 
 ![logo](assets/tags/nodejs.svg)
 ![logo](assets/tags/express.svg)
 ![logo](assets/tags/mongoose.svg)
-![logo](assets/tags/mongoDB.svg)  
-<u>_Back-End_</u>
+![logo](assets/tags/mongoDB.svg)
 
 </div>
-
-<br>
-
----
-
----
-
----
 
 ---
 
