@@ -214,10 +214,12 @@ const lightbox = document.getElementById("lightbox");
 const lightboxWrapper = lightbox.querySelector(".lightbox__wrapper");
 const nextLBImgBtn = lightboxWrapper.querySelector(".mg-next");
 const prevLBImgBtn = lightboxWrapper.querySelector(".mg-prev");
+const closeLBBtn = lightboxWrapper.querySelector(".closeLightbox");
 
 galleryImgs.forEach((img) => img.addEventListener("click", openModal));
 galleryImgs.forEach((img) => img.addEventListener("keydown", openModal));
 lightbox.addEventListener("close", closeModal);
+closeLBBtn.addEventListener("click", () => lightbox.close());
 nextLBImgBtn.addEventListener("click", lightboxCommands);
 prevLBImgBtn.addEventListener("click", lightboxCommands);
 document.addEventListener("keydown", lightboxCommands);

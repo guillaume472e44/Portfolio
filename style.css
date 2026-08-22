@@ -15,7 +15,6 @@
   --black_sickness: #272414;
   --candle: #ffb93d;
   --accentColor: #d83a00;
-  --footer_txt: rgba(146, 235, 255, 0.75);
 
   --anchorBorderColor: var(--black_sickness);
 
@@ -350,7 +349,7 @@ header {
   header {
     display: flex;
 
-    .alpinist-silhouette::before {
+    & .header__silhouettes .alpinist-silhouette {
       display: none;
     }
 
@@ -392,9 +391,6 @@ header {
 }
 @media (width < 960px) {
   header {
-    & .header__silhouettes .alpinist-silhouette {
-      display: none;
-    }
     .header__navigation {
       justify-content: flex-start;
     }
@@ -787,22 +783,20 @@ header {
     top: -25%;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 
     & img {
-      position: absolute;
-      opacity: 0;
-      animation: explosion 0.9s step-end;
+      display: flex;
+      max-width: none;
+      animation: explosion 0.9s steps(9, end) forwards;
     }
   }
 }
 
 /* Animation Explosion */
 @keyframes explosion {
-  0% {
-    opacity: 1;
-  }
-  11.12% {
-    opacity: 0;
+  to {
+    transform: translateX(-2304px);
   }
 }
 
@@ -1220,7 +1214,6 @@ header {
       & p:first-of-type {
         top: -16px;
         left: 0;
-        /* margin-inline-end: 16px; */
       }
     }
     & .section-content__img {
@@ -1354,6 +1347,8 @@ header {
 
 footer {
   overflow-x: clip;
+  display: flow-root;
+  margin-top: 128px;
 }
 
 .footer__silhouettes {
@@ -1364,28 +1359,34 @@ footer {
   .explosion {
     position: absolute;
     z-index: 1;
-    bottom: calc(270px + 64px);
+    bottom: calc(144px - 64px);
     left: calc(136px - 64px);
 
+    width: 256px;
+    height: 256px;
+    overflow: hidden;
+
     & img {
-      position: absolute;
-      opacity: 0;
-      animation: explosion 0.9s step-end;
+      display: flex;
+      animation: explosion 0.9s steps(9, end) forwards;
     }
   }
 
   .fire {
     position: absolute;
-    bottom: 270px;
+    bottom: 144px;
     left: 136px;
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
 
     & img {
-      position: absolute;
-      opacity: 0;
-      @supports (not (background: -webkit-named-image(i))) {
+      /* @supports (not (background: -webkit-named-image(i))) {
         filter: drop-shadow(4px 4px 24px var(--candle));
-      }
-      animation: fire 1.6s step-end infinite;
+      } */
+      filter: drop-shadow(4px 4px 24px var(--candle));
+      display: flex;
+      animation: fire 1.6s steps(16, end) infinite;
     }
   }
 
@@ -1428,7 +1429,7 @@ footer {
     content: "🌚 Tous droits réservés © 2026";
     font-family: "Indie Flower";
     font-weight: 100;
-    color: var(--footer_txt);
+    color: var(--white_sickness);
     display: flex;
     align-items: end;
     position: absolute;
@@ -1443,7 +1444,13 @@ footer {
     transition-delay: var(--transitionDelay-6);
   }
   &::after {
-    content: "";
+    content: "Dév web à Épinal 🤓";
+    font-family: "Indie Flower";
+    font-weight: 100;
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+    color: var(--white_sickness);
     position: absolute;
     width: 480px;
     height: 480px;
@@ -1471,11 +1478,8 @@ footer {
 }
 /* Animation feu de camp */
 @keyframes fire {
-  0% {
-    opacity: 1;
-  }
-  6.25% {
-    opacity: 0;
+  to {
+    transform: translateX(-2048px);
   }
 }
 /* Animation Homme des cavernes */
@@ -1498,6 +1502,9 @@ footer {
 }
 
 @media (width < 1120px) {
+  footer {
+    margin-top: 32px;
+  }
   .footer__silhouettes {
     &::before,
     &::after,
@@ -1562,7 +1569,7 @@ footer {
     & .screen {
       transform: scale(0);
     }
-    .section-header__navigation button {
+    & .section-header__navigation button {
       transform: scale(0);
     }
 
@@ -1584,5 +1591,11 @@ footer {
     & .Thx1138-silhouette {
       transform: scaleY(0);
     }
+  }
+}
+
+@media (prefers-reduced-motion) {
+  :root {
+    --transitionDelay-16: 0s;
   }
 }

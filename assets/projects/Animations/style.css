@@ -125,44 +125,44 @@ nav {
 .hero-section {
   text-align: center;
   margin-top: 48px;
+}
 
-  h1 {
-    font-size: clamp(2rem, 6vw, 6rem);
-    text-transform: uppercase;
-    font-family: Montserrat, sans-serif;
-    font-weight: 800;
-    background-image: linear-gradient(90deg, gray, #ffffff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    color: transparent;
-    position: relative;
-    display: inline;
+.hero-section h1 {
+  font-size: clamp(2rem, 6vw, 6rem);
+  text-transform: uppercase;
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+  background-image: linear-gradient(90deg, gray, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline;
+}
 
-    &::after {
-      content: "";
-      position: absolute;
-      height: 100%;
-      width: 2px;
-      background: #ebebeb;
-      right: -8px;
-      top: 0;
-      animation: caret 1.2s infinite;
-    }
-  }
+.hero-section h1::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background: #ebebeb;
+  right: -8px;
+  top: 0;
+  animation: caret 1.2s infinite;
+}
 
-  .subtitle {
-    color: #f1f1f1;
-    font-weight: 200;
-    margin-top: 16px;
-    font-size: 1rem;
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
+.hero-section .subtitle {
+  color: #f1f1f1;
+  font-weight: 200;
+  margin-top: 16px;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
 
-    &.active {
-      opacity: 1;
-    }
-  }
+.hero-section .subtitle.active {
+  opacity: 1;
 }
 
 @keyframes caret {
@@ -289,7 +289,9 @@ h2 {
 
   transform: translateX(32px) skew(22.5deg);
   opacity: 0;
-  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  transition:
+    transform 0.4s ease-out,
+    opacity 0.4s ease-out;
 }
 
 .model__browser:nth-child(4) {
@@ -378,7 +380,9 @@ h2,
 .contact__section__img {
   opacity: 0;
   transform: translateY(-8px);
-  transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
+  transition:
+    opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
 }
 h2.active,
 .section__subtitle.active,

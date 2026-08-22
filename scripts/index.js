@@ -2,7 +2,6 @@ export * from "./animations/onload.js";
 import { displaySVGTitle } from "./animations/titles.js";
 import transitions from "./animations/transitions.js";
 import explosion from "./animations/explosion.js";
-import loadFireSheets from "./animations/loadFireSheets.js";
 import { projects } from "../assets/projects/projectsIndex.js";
 import tagsIndex from "../assets/tags/tagsIndex.js";
 
@@ -86,7 +85,6 @@ function startFire() {
     delay: 0,
     imgToDisplay: document.querySelector(".fire"),
   });
-  loadFireSheets();
   isOnFire = true;
 }
 
