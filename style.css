@@ -888,6 +888,24 @@ header {
 
   & .section-content__img {
     margin-inline-start: auto;
+    margin-block-end: auto;
+  }
+
+  & .CV-link {
+    background-color: var(--black_stones);
+    color: var(--white_severance);
+    font-size: 0.8rem;
+    text-decoration: none;
+    display: block;
+    border-radius: 4px;
+    text-align: center;
+    max-width: 50%;
+    margin-inline-start: auto;
+    margin-block-start: 32px;
+    padding-block: 2px 4px;
+  }
+  & .CV-link:hover {
+    color: var(--accentColor);
   }
 }
 
@@ -1256,6 +1274,9 @@ header {
     & .section-content__img {
       margin-inline: auto;
       margin-block-start: auto;
+    }
+    & .CV-link {
+      max-width: 100%;
     }
   }
   #skills {
